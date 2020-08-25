@@ -17,6 +17,7 @@ const MessagesList = () => {
 
 	useEffect(() => {
 		dispatch(fetchMessages(id));
+		// eslint-disable-next-line
 	}, [dispatch]);
 
 	const DeleteMessage = async (tekst, data) => {
