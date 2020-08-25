@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Pane } from 'evergreen-ui';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchChats } from './getChatSlice';
+import ChatItem from './chatItem';
 
 const ChatsList = () => {
 	const dispatch = useDispatch();
@@ -24,7 +24,16 @@ const ChatsList = () => {
 			top="80px"
 			zIndex={1}
 		>
-			{chats.map(chat => <div><Link to={`/chat/${chat.id}`}>{chat.name}</Link></div>)}
+			{!isLoading ? (
+				<Pane>
+					{chats.map(chat => (
+						<ChatItem chat={chat} />
+					))}
+				</Pane>
+			) : (
+				<Pane>Loading...</Pane>
+			)}
+
 		</Pane>
 	);
 };
