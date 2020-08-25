@@ -29,7 +29,7 @@ const UserAccount = () => {
 					</Menu>
 				}
 			>
-				<Avatar src={currentUser.avatar} name={currentUser.name} size={40} />
+				<Avatar cursor='pointer' src={currentUser.avatar} name={currentUser.name} size={40} />
 			</Popover>
 		</div>
 	);

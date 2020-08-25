@@ -12,27 +12,46 @@ const Header = () => {
 	return (
 		<Pane
 			width="100%"
+			height="70px"
 			background="tint2"
-			display="flex"
-			alignItems="center"
-			flexDirection="row"
-			justifyContent="space-between"
-			padding={10}
+			position="fixed"
+			top={0}
+			zIndex={2}
 		>
-			<Link to="/">
-				<Text size={700}>CHATLY</Text>
-			</Link>
-			{currentUser ? (
-				<UserAccount />
-			) : (
-				<Pane
-					display="flex"
-					flexDirection="row"
-				>
-					<RegisterUser />
-					<UserLogin />
-				</Pane>
-			)}
+			<Pane
+				padding={20}
+				width="100%"
+				height="100%"
+				display="flex"
+				alignItems="center"
+				flexDirection="row"
+				justifyContent="space-between"
+			>
+				<Link to="/">
+					<Text size={700}>CHATLY</Text>
+				</Link>
+				{currentUser ? (
+					<UserAccount />
+				) : (
+					<Pane
+						display="flex"
+						flexDirection="row"
+					>
+						<RegisterUser />
+						<UserLogin />
+					</Pane>
+				)}
+			</Pane>
+			<Pane
+				padding={20}
+				width="100%"
+				height="100%"
+				display="flex"
+				alignItems="center"
+				flexDirection="row"
+				justifyContent="space-between"
+			>
+			</Pane>
 		</Pane>
 	);
 };

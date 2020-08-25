@@ -40,7 +40,7 @@
 
     "quotes": ["error", "single"],
     "quote-props": ["error","as-needed"],
-
+    "implicit-arrow-linebreak": ["error", "beside"],
     "arrow-spacing": "error",
     "arrow-parens": ["error","as-needed"],
 

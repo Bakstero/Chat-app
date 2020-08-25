@@ -1,9 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../features/auth/authSlice';
-import { db } from '../services/firebase';
+import React from 'react';
+import { Pane } from 'evergreen-ui';
+import ChatsList from '../features/getChatList/chatsList';
+
+// must import firebase.firestore
+
+const HomePage = () => (
+	<Pane>
+		<Pane padding="10px">
+			<ChatsList/>
+		</Pane>
+	</Pane>
+);
+
+export default HomePage;
+/*
+	const testtt = useSelector(messageToSend)
+	console.log(testtt);
+	const GetAllUsers = () => {
+	const [posts, setPosts] = useState([])
+	useEffect(() => {
+	db.collection('users').get()
+	.then(querySnapshot => {
+		querySnapshot.forEach(doc => {
+			const posts = querySnapshot.docs.map(doc => ({
+  id: doc.id,
+  ...doc.data(),
+			}))
+			console.log(posts);
+			setPosts(posts);
+		});
+	});
+	}, [])
+	return po
+	*/
+
+/*
 
 const GetAllUsers = () => {
 	const [users, setUsers] = useState([]);
@@ -19,38 +50,4 @@ const GetAllUsers = () => {
 	}, []);
 	return users;
 };
-
-const HomePage = () => {
-	const { register, handleSubmit } = useForm();
-	const currentUser = useSelector(selectCurrentUser);
-	const usersMap = GetAllUsers();
-
-	const onSubmit = data => {
-		db.collection('chat').doc().set({ users: currentUser.uid, messages: [data] }, { merge: true });
-	};
-	return (
-		<div>
-			{usersMap.map((user, id) => <div key={id}>
-				<h1>{user.email}</h1>
-				<Link to={`/${user.id}`}>{user.name}</Link>
-			</div>)
-			}
-			<form onSubmit={handleSubmit(onSubmit)}>
-  			<input
-					name="name"
-					placeholder="to"
-					ref={register({ required: true, maxLength: 20 })}
-				/>
- 				<input
-					name="firstName"
-					ref={register({ required: true, maxLength: 20 })}
-				/>
-				<input name="lastName" ref={register()} />
-				<input type="submit" />
-			</form>
-		</div>
-	);
-};
-
-export default HomePage;
-
+*/
