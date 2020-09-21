@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout, selectCurrentUser } from '../features/auth/authSlice';
+import { login, logout, selectCurrentUser } from '../shared/auth/authSlice';
 import { auth } from '../services/firebase';
 
 export default () => {

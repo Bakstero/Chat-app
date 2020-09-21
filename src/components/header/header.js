@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as Logo } from '../../static/logo/LogoText.svg';
 import useAuthUser from '../../hooks/useAuthUser';
-import UserLogin from '../../features/auth/login';
-import RegisterUser from '../../features/auth/register';
+import UserLogin from '../form/login';
+import RegisterUser from '../form/register';
 import UserMenu from './userMenu/userMenu';
 
 const Wrapper = styled.header`

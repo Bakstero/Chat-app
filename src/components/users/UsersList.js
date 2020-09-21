@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { fetchUsers } from './getUsersSlice';
+import { fetchUsers } from '../../shared/users/getUsersSlice';
 import UserItem from './userItem';
 
 const Wrapper = styled.div`

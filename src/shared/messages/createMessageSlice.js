@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { db, dbUpdate } from '../../../services/firebase';
+import { db, dbUpdate } from '../../services/firebase';
 
 const createMsgSlice = createSlice({
 	name: 'newMessage',

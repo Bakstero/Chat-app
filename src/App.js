@@ -4,8 +4,8 @@ import Account from './page/account';
 import HomePage from './page/homePage';
 import Dashboard from './page/dashboard';
 import ChatPage from './page/chat';
-import PrivateRoute from './features/auth/privateRoute';
-import PublicRoute from './features/auth/publicRoute';
+import PrivateRoute from './routes/privateRoute';
+import PublicRoute from './routes/publicRoute';
 
 function App() {
 	return (

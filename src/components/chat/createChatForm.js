@@ -1,9 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
-import { danger } from '../../components/alerts/toasers';
-import { selectCurrentUser } from '../auth/authSlice';
-import { CreateChat } from './createChatSlice';
+import { selectCurrentUser } from '../../shared/auth/authSlice';
+import { CreateChat } from '../../shared/chat/createChatSlice';
 
 const CreateChatForm = () => {
 	const {
@@ -11,6 +10,7 @@ const CreateChatForm = () => {
 	} = useForm();
 	const dispatch = useDispatch();
 	const { uid } = useSelector(selectCurrentUser);
+
 	const onSubmit = ({ name }) => {
 		const usersAuth = [uid];
 		const chatData = {
@@ -31,7 +31,7 @@ const CreateChatForm = () => {
 						placeholder="Name chat"
 						ref={register({ required: true, maxLength: 12 })}
 					/>
-					{errors.name && danger('This field is required', 5)}
+					{errors.name && <p>This field is required</p>}
 					<input
 						type="Submit"
 						value="Create new chat"

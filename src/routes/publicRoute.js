@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import useAuthUser from '../../hooks/useAuthUser';
+import useAuthUser from '../hooks/useAuthUser';
 
 export default function PublicRoute({ component: Component, restricted, ...rest }) {
 	const currentUser = useAuthUser();

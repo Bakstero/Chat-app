@@ -1,5 +1,5 @@
-import { colors } from '../utils/colors';
-import { device } from '../utils/mediaSize';
+import { colors } from './utils/colors';
+import { device } from './utils/mediaSize';
 
 export const theme = {
 	colors,

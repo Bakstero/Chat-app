@@ -5,9 +5,9 @@ import styled, { css } from 'styled-components';
 import {
 	AiOutlineUser, AiOutlineEdit, AiOutlineSetting, AiOutlineLogout,
 } from 'react-icons/ai';
-import { selectCurrentUser } from '../../../features/auth/authSlice';
+import { selectCurrentUser } from '../../../shared/auth/authSlice';
 import { logout } from '../../../services/authProviders';
-import Popup from '../../popup/popup';
+import Popup from '../../popup';
 import { CloseModal } from '../../../utils/closeModal';
 
 const UserAvatar = styled.img`
