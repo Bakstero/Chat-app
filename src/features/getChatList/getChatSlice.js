@@ -29,10 +29,10 @@ export default getChatsSlice.reducer;
 
 const { getChatsSuccess, startLoading, hasError } = getChatsSlice.actions;
 
-export const fetchChats = () => async dispatch => {
+export const fetchChats = userID => async dispatch => {
 	dispatch(startLoading());
 	try {
-		await db.collection('chat')
+		await db.collection('chat').where('usersAuth', 'array-contains', userID)
 			.onSnapshot(querySnapshot => {
 				const chatsList = querySnapshot.docs.map(doc => ({
 					id: doc.id,

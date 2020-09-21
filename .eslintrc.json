@@ -30,6 +30,8 @@
     "space-in-parens": ["error", "never"],
     "no-multiple-empty-lines": "error",
     "comma-style": ["error", "last"],
+    "linebreak-style": 0,
+    "import/prefer-default-export": "off",
 
     "brace-style": "error",
     "semi": ["error","always"],
@@ -63,6 +65,7 @@
     "no-nested-ternary": "error",
     "no-mixed-operators": "error",
     "no-else-return": "error",
-    "no-new-wrappers": "error"
+    "no-new-wrappers": "error",
+    "react/prop-types": 0
   }
 }

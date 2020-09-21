@@ -1,8 +1,23 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Pane, Strong, Avatar } from 'evergreen-ui';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import { fetchUsers } from './getUsersSlice';
+import UserItem from './userItem';
+
+const Wrapper = styled.div`
+	margin-top: 6vh;
+	display:flex;
+	justify-content:center;
+	width:100%;
+	height:100px;
+	padding:10px;
+`;
+
+const Container = styled.div`
+	display:flex;
+	min-height:100%;
+	overflow: overlay;
+`;
 
 const UsersList = () => {
 	const dispatch = useDispatch();
@@ -12,38 +27,15 @@ const UsersList = () => {
 	}, [dispatch]);
 
 	return (
-		<Pane
-			width="100%"
-			height="65px"
-			display="flex"
-			alignItems="center"
-			justifyContent="center"
-			flexDirection="row"
-			marginTop={100}
-			padding={10}
-			top="80px"
-			zIndex={1}
-		>
-			{isLoading ? <h1>Loading users</h1>
-				: <Pane
-					display="flex"
-					alignItems="center"
-					justifyContent="center"
-					flexDirection="row">
-					{users.map(({ id, name, avatar }, keyId) => <div key={keyId}>
-						<Link to={`/${id}`}>
-							<Avatar
-								src={avatar}
-								name="Alan Turing"
-								size={60}
-								marginRight={16}
-							/>
-							<Strong size={300}>{name}</Strong>
-						</Link>
-					</div>)}
-				</Pane>
-			}
-		</Pane>
+		<Wrapper>
+			{!isLoading ? (
+				<Container>
+					{users.map(user => <UserItem user={user} key />)}
+				</Container>
+			) : (
+				<div>Loading...</div>
+			)}
+		</Wrapper>
 	);
 };
 

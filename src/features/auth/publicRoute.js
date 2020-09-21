@@ -2,15 +2,16 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import useAuthUser from '../../hooks/useAuthUser';
 
-export default function PrivateRoute({ component: Component, ...rest }) {
+export default function PublicRoute({ component: Component, restricted, ...rest }) {
 	const currentUser = useAuthUser();
+
 	return (
-	// Show the component only when the user is logged in
-	// Otherwise, redirect the user to /signin page
 		<Route {...rest} render={props => (
 			currentUser
-				? <Component {...props} />
-				: <Redirect to="/" />
+				? <Redirect to="/dashboard" />
+				: <Component {...props} />
 		)} />
 	);
 }
+// restricted = false meaning public route
+// restricted = true meaning restricted route

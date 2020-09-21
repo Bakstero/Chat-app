@@ -15,7 +15,7 @@
 * React Router Dom
 * Redux
 * Firebase
-* Segment Evergreen
+* Styled-Components
 
 ## Setup
 
@@ -33,5 +33,4 @@ $ yarn start
 * User Account
 
 ## Status
-Project is: in progressilenames include the hashes.<br />
-Your app is ready to be deployed!
+Project is: in progress!

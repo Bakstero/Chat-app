@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Pane } from 'evergreen-ui';
 import { useParams } from 'react-router-dom';
+import Layout from '../layout/layout';
 import { db } from '../services/firebase';
 
 const UserAccount = () => {
@@ -16,11 +16,11 @@ const UserAccount = () => {
 	}, [id]);
 
 	return (
-		<Pane>
+		<Layout>
 			<h1>{userData.name}</h1>
 			<img src={userData.avatar} alt={userData.avatar} />
 			<h1>{userData.email}</h1>
-		</Pane>
+		</Layout>
 	);
 };
 export default UserAccount;

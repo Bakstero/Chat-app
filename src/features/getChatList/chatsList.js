@@ -1,40 +1,29 @@
 import React, { useEffect } from 'react';
-import { Pane } from 'evergreen-ui';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchChats } from './getChatSlice';
 import ChatItem from './chatItem';
+import { selectCurrentUser } from '../auth/authSlice';
 
 const ChatsList = () => {
 	const dispatch = useDispatch();
+	const { uid } = useSelector(selectCurrentUser);
 	const { chats, isLoading } = useSelector(state => state.chats);
 	useEffect(() => {
-		dispatch(fetchChats());
-	}, [dispatch]);
+		dispatch(fetchChats(uid));
+	}, [dispatch, uid]);
 
 	return (
-		<Pane
-			width="100%"
-			height="65px"
-			display="flex"
-			alignItems="center"
-			justifyContent="center"
-			flexDirection="row"
-			marginTop={100}
-			padding={10}
-			top="80px"
-			zIndex={1}
-		>
+		<div>
 			{!isLoading ? (
-				<Pane>
+				<div>
 					{chats.map(chat => (
-						<ChatItem chat={chat} />
+						<ChatItem item={chat} key/>
 					))}
-				</Pane>
+				</div>
 			) : (
-				<Pane>Loading...</Pane>
+				<div>Loading...</div>
 			)}
-
-		</Pane>
+		</div>
 	);
 };
 

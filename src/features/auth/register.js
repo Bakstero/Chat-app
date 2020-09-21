@@ -1,103 +1,79 @@
-import React from 'react';
-import Component from '@reactions/component';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AiFillFacebook, AiFillGoogleSquare, AiOutlineClose } from 'react-icons/ai';
 import {
-	Button,
-	Pane,
-	Dialog,
-	Heading,
-	CrossIcon,
-	TextInput,
-	Text,
-} from 'evergreen-ui';
+	FormContainter,
+	HeaderForm,
+	TitleForm,
+	Form,
+	Input,
+	FooterForm,
+	CustomSubmit,
+	ErrorTitle,
+} from '../../components/form/form';
+import Modal from '../../components/Modal/modal';
 import { googleAuth, fbAuth, emailAuth } from '../../services/authProviders';
+import { MinimalistButton } from '../../components/button/button';
+import { CloseModal } from '../../utils/closeModal';
 
 const RegisterUser = () => {
 	const { register, handleSubmit, errors } = useForm();
+	const [modal, openModal] = useState(false);
 
-	const onSubmit = data => {
-		emailAuth(data.email, data.password);
+	const onSubmit = ({ email, password }) => {
+		emailAuth(email, password);
 	};
 
 	return (
 		<div>
-			<Component initialState={{ isShown: false }}>
-				{({ state, setState }) => (
-					<Pane>
-						<Dialog
-							isShown={state.isShown}
-							onCloseComplete={() => setState({ isShown: false })}
-							hasCancel={false}
-							hasHeader={false}
-							confirmLabel={<CrossIcon />}
-							intent="danger"
-						>
-							<Pane>
-								<Pane
-									display="flex"
-									justifyContent="center"
-									alignItems="center"
-									flexDirection="column"
-								>
-									<Heading size={800}>Register</Heading>
-									<form
-										style={{
-											display: 'flex',
-											flexDirection: 'column',
-											justifyContent: 'center',
-											alignItems: 'center',
-										}}
-										onSubmit={handleSubmit(onSubmit)}
-									>
-										<TextInput
-											name="email"
-											placeholder="Email"
-											type="email"
-											marginTop={20}
-											ref={register({ required: true })}
-										/>
-										{errors.email?.type === 'required'
-											&& <Text color='danger' marginRight={'59%'} paddingTop={10} >Email is required.</Text>}
-
-										<TextInput
-											name="password"
-											type="password"
-											marginTop={10}
-											placeholder="password"
-											ref={register({
-												required: true,
-												minLength: 6,
-												maxLength: 24,
-											})}
-										/>
-										{errors.password?.type === 'required'
-											&& <Text color='danger' marginRight={'50%'} paddingTop={10} >Password is required.</Text>}
-										{errors.password?.type === 'minLength'
-											&& <Text color='danger' marginRight={'65%'} paddingTop={10} >Min lenght is 6</Text>}
-										<TextInput marginTop={10} type="submit" />
-									</form>
-
-									<Button marginTop={20} appearance="primary" intent="danger" onClick={googleAuth}>
-                  	Register with Google
-									</Button>
-									<Button marginTop={20} appearance="primary" intent="none" onClick={fbAuth}>
-                  	Register with Facebook
-									</Button>
-								</Pane>
-							</Pane>
-						</Dialog>
-
-						<Button
-							appearance="minimal"
-							intent="none"
-							height={40}
-							onClick={() => setState({ isShown: true })}
-						>
-            Register
-						</Button>
-					</Pane>
-				)}
-			</Component>
+			<MinimalistButton primary onClick={() => openModal(true)}>Register</MinimalistButton>
+			<Modal open={modal}>
+				<FormContainter>
+					<HeaderForm>
+						<TitleForm>Register</TitleForm>
+						<CustomSubmit exit onClick={() => openModal(false)}>
+							<AiOutlineClose size={'30px'} />
+						</CustomSubmit>
+					</HeaderForm>
+					<Form onSubmit={handleSubmit(onSubmit)}>
+						<Input
+							name="email"
+							placeholder="Email"
+							type="email"
+							marginTop={20}
+							ref={register({ required: true })}
+						/>
+						<Input
+							name="password"
+							type="password"
+							placeholder="Password"
+							ref={register({
+								required: true,
+								minLength: 6,
+								maxLength: 24,
+							})}
+						/>
+						<Input submit type="submit" />
+						{errors.password?.type === 'required'
+							&& <ErrorTitle>Password is required.</ErrorTitle>}
+						{errors.password?.type === 'minLength'
+							&& <ErrorTitle>Min lenght is 6</ErrorTitle>}
+						{errors.email?.type === 'required'
+							&& <ErrorTitle>Email is required.</ErrorTitle>}
+					</Form>
+					<FooterForm>
+						<CustomSubmit google onClick={googleAuth}>
+							<AiFillGoogleSquare size={'35px'} />
+							<p>Register with Google</p>
+						</CustomSubmit>
+						<CustomSubmit onClick={fbAuth}>
+							<AiFillFacebook size={'35px'}/>
+							<p>Register with Facebook</p>
+						</CustomSubmit>
+					</FooterForm>
+				</FormContainter>
+				<CloseModal onClick={() => openModal(false)} />
+			</Modal>
 		</div>
 	);
 };

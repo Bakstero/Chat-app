@@ -1,14 +1,15 @@
 import React from 'react';
-import { Pane } from 'evergreen-ui';
-import ChatsList from '../features/getChatList/chatsList';
-import CreateChatForm from '../features/createChat/createChatForm';
+import Layout from '../layout/layout';
+
 const HomePage = () => (
-	<Pane>
-		<CreateChatForm />
-		<Pane padding="10px">
-			<ChatsList/>
-		</Pane>
-	</Pane>
+	<Layout>
+		<h1>hello</h1>
+		<h1>hello</h1>
+		<h1>hello</h1>
+		<h1>hello</h1>
+		<h1>hello</h1>
+		<h1>hello</h1>
+	</Layout>
 );
 
 export default HomePage;

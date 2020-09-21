@@ -6,7 +6,6 @@ import { auth } from '../services/firebase';
 export default () => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
-
 	useEffect(() => {
 		const setUser = user => {
 			if (user) {
