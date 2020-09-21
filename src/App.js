@@ -7,17 +7,15 @@ import ChatPage from './page/chat';
 import PrivateRoute from './routes/privateRoute';
 import PublicRoute from './routes/publicRoute';
 
-function App() {
-	return (
-		<Router>
-			<Switch>
-				<PublicRoute component={HomePage} path="/" exact />
-				<PrivateRoute component={Dashboard} path="/dashboard" />
-				<PrivateRoute component={ChatPage} path="/chat/:id"/>
-				<PrivateRoute component={Account} path="/user/:id" />
-			</Switch>
-		</Router>
-	);
-}
+const App = () => (
+	<Router>
+		<Switch>
+			<PublicRoute component={HomePage} path="/" exact />
+			<PrivateRoute component={Dashboard} path="/dashboard" />
+			<PrivateRoute component={ChatPage} path="/chat/:id"/>
+			<PrivateRoute component={Account} path="/user/:id" />
+		</Switch>
+	</Router>
+);
 
 export default App;

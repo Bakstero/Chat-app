@@ -14,8 +14,7 @@ const MessagesList = () => {
 
 	useEffect(() => {
 		dispatch(fetchMessages(id));
-		// eslint-disable-next-line
-	}, [dispatch]);
+	}, [dispatch, id]);
 
 	const DeleteMessage = async (text, data) => {
 		await db.collection('chat')
