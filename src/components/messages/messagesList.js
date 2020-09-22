@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMessages } from '../../shared/messages/getMessagesSlice';
 import { selectCurrentUser } from '../../shared/auth/authSlice';
 import { db, dbUpdate } from '../../services/firebase';
-import ScrollBottom from '../../utils/scrollBottom';
+import ScrollBottom from '../../helpers/scrollBottom';
 
 const MessagesList = () => {
 	const { name, uid, avatar } = useSelector(selectCurrentUser);

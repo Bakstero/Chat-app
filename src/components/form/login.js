@@ -4,7 +4,7 @@ import { AiFillFacebook, AiFillGoogleSquare, AiOutlineClose } from 'react-icons/
 import Modal from '../modal/index';
 import { googleAuth, fbAuth, loginAuth } from '../../services/authProviders';
 import { MinimalistButton } from '../button/button';
-import { CloseModal } from '../../utils/closeModal';
+import { CloseModal } from '../../helpers/closeModal';
 import {
 	FormContainter,
 	HeaderForm,

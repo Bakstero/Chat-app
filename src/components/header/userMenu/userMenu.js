@@ -8,7 +8,7 @@ import {
 import { selectCurrentUser } from '../../../shared/auth/authSlice';
 import { logout } from '../../../services/authProviders';
 import Popup from '../../popup';
-import { CloseModal } from '../../../utils/closeModal';
+import { CloseModal } from '../../../helpers/closeModal';
 
 const UserAvatar = styled.img`
 	width: 30px;
@@ -53,7 +53,7 @@ const Container = styled.div`
 	align-items: center;
 	padding: 8px 16px 8px 16px;
 	color:${({ theme }) => theme.colors.black};
-	font-weight:${({ theme }) => theme.font.regular};
+	font-weight:${({ theme }) => theme.fontWeight.regular};
 	font-size:${({ theme }) => theme.fontSize.regular};
 `;
 

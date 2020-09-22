@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as Logo } from '../../static/logo/LogoText.svg';
+import { ReactComponent as LogoText } from '../../images/logo/LogoText.svg';
 import useAuthUser from '../../hooks/useAuthUser';
 import UserLogin from '../form/login';
 import RegisterUser from '../form/register';
@@ -35,7 +35,7 @@ const AuthDiv = styled.div`
 	align-items: center;
 `;
 
-const TextLogo = styled(Logo)`
+const TextLogo = styled(LogoText)`
 	width: 200px;
 	height: 40px;
 	@media ${({ theme }) => theme.device.mobileL} {

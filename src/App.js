@@ -6,14 +6,15 @@ import Dashboard from './page/dashboard';
 import ChatPage from './page/chat';
 import PrivateRoute from './routes/privateRoute';
 import PublicRoute from './routes/publicRoute';
+import * as ROUTE from './routes/routes';
 
 const App = () => (
 	<Router>
 		<Switch>
-			<PublicRoute component={HomePage} path="/" exact />
-			<PrivateRoute component={Dashboard} path="/dashboard" />
-			<PrivateRoute component={ChatPage} path="/chat/:id"/>
-			<PrivateRoute component={Account} path="/user/:id" />
+			<PublicRoute component={HomePage} path={ROUTE.HOME} exact />
+			<PrivateRoute component={Dashboard} path={ROUTE.DASHBOARD} />
+			<PrivateRoute component={ChatPage} path={ROUTE.CHAT}/>
+			<PrivateRoute component={Account} path={ROUTE.USER} />
 		</Switch>
 	</Router>
 );

@@ -14,7 +14,7 @@ import {
 import Modal from '../modal/index';
 import { googleAuth, fbAuth, emailAuth } from '../../services/authProviders';
 import { MinimalistButton } from '../button/button';
-import { CloseModal } from '../../utils/closeModal';
+import { CloseModal } from '../../helpers/closeModal';
 
 const RegisterUser = () => {
 	const { register, handleSubmit, errors } = useForm();

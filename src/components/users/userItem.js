@@ -22,7 +22,7 @@ const UserAvatar = styled.img`
 const UserName = styled.span`
 	text-align: center;
 	color:${({ theme }) => theme.colors.black};
-	font-weight:${({ theme }) => theme.font.regular};
+	font-weight:${({ theme }) => theme.fontWeight.regular};
 	font-size:${({ theme }) => theme.fontSize.small};
 `;
 
