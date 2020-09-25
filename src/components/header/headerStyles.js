@@ -37,7 +37,7 @@ export const Nav = styled.div`
 	flex-direction:row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0% 21% 0% 19%;
+	padding: 0% 8% 0% 6%;
 `;
 
 export const AuthDiv = styled.div`

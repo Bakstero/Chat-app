@@ -11,10 +11,13 @@ const Wrapper = styled.div`
 	position:fixed;
 	bottom:0;
 	width: 60%;
-	height:10;
+	height:10vh;
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: center;
+	padding: 10px;
+	background-color:${({ theme }) => theme.colors.background};
+	border-right: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 const CreateMessageForm = () => {
@@ -31,7 +34,7 @@ const CreateMessageForm = () => {
 			userUid: uid,
 			userAvatar: avatar,
 			text,
-			data: Date.now(),
+			data: Date().toLocaleString('en-us'),
 		};
 		dispatch(SendMsg(id, message));
 		setValue('text');
