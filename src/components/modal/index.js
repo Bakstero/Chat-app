@@ -40,7 +40,7 @@ const ModalContainter = styled.div`
   }
 	@media ${({ theme }) => theme.device.laptopL} {
  		width: 30vw;
-		height: 70vh;
+		height: 80vh;
   }
 		@media ${({ theme }) => theme.device.desktop} {
  		width: 30vw;

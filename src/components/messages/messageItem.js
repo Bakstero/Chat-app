@@ -5,34 +5,45 @@ import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../shared/auth/authSlice';
 
 const ChatAvatar = styled.img`
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 `;
 
 const Container = styled.div`
 	width: 100%;
-	height: 10%;
+	height: auto;
 	padding: 10px;
 	margin: 10px 0px 10px 0px;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-`;
-
-const MessageContainer = styled.div`
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: flex-end;
-	${props => props.otherUser && css`
+		${props => props.otherUser && css`
 		justify-content: flex-start;
 	`}
 `;
 
-export const MessageText = styled.p`
+const MessageContainer = styled.div`
+	max-width: 80%;
+	margin: 0px 10px 0px 10px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color:${({ theme }) => theme.colors.primary};
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 
+	${props => props.otherUser && css`
+		background-color:${({ theme }) => theme.colors.secoundary};
+	`}
+`;
+
+export const MessageText = styled.p`
+	width: fil-content;
+	text-align: left;
+	margin:0px;
+	color: ${({ theme }) => theme.colors.white};
+	fontSize: 14px;
 `;
 
 const MessageItem = ({
@@ -48,17 +59,14 @@ const MessageItem = ({
 				? (
 					<Container>
 						<MessageContainer>
-							<Timestamp relative date={data} autoUpdate />
 							<MessageText>{text}</MessageText>
-							<ChatAvatar src={userAvatar} alt={user} />
 						</MessageContainer>
 					</Container>
 				) : (
-					<Container >
+					<Container otherUser >
+						<ChatAvatar src={userAvatar} alt={user} />
 						<MessageContainer otherUser>
-							<ChatAvatar src={userAvatar} alt={user} />
 							<MessageText>{text}</MessageText>
-							<Timestamp relative date={data} autoUpdate />
 						</MessageContainer>
 					</Container>
 				)

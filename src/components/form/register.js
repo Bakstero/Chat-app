@@ -22,8 +22,8 @@ const RegisterUser = () => {
 	const { register, handleSubmit, errors } = useForm();
 	const [modal, openModal] = useState(false);
 
-	const onSubmit = ({ email, password }) => {
-		emailAuth(email, password);
+	const onSubmit = ({ email, password, name }) => {
+		emailAuth(email, password, name);
 	};
 
 	return (
@@ -39,10 +39,15 @@ const RegisterUser = () => {
 					</HeaderForm>
 					<Form onSubmit={handleSubmit(onSubmit)}>
 						<Input
+							name="name"
+							placeholder="Name"
+							type="text"
+							ref={register({ required: true })}
+						/>
+						<Input
 							name="email"
 							placeholder="Email"
 							type="email"
-							marginTop={20}
 							ref={register({ required: true })}
 						/>
 						{errors.email?.type === 'required'

@@ -86,11 +86,15 @@ const LogoutIcon = styled(AiOutlineLogout)`
 `;
 
 const UserMenu = () => {
+	const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/appwillay.appspot.com/o/avatars%2FDefaultUserAvatar.jpg?alt=media&token=aa410a73-9c7f-4d93-926c-37dae73dc136'
 	const { avatar, uid } = useSelector(selectCurrentUser);
 	const [popup, openPopup] = useState(false);
 	return (
 		<UserMenuWrapper>
-			<UserAvatar clicked={popup} onClick={() => openPopup(true)} src={avatar}/>
+			{avatar !== null
+				?	<UserAvatar clicked={popup} onClick={() => openPopup(true)} src={avatar} />
+				: <UserAvatar clicked={popup} onClick={() => openPopup(true)} src={defaultAvatar} />
+			}
 			<Popup open={popup}>
 				<Item to={`/user/${uid}`}>
 					<Container>
