@@ -11,21 +11,13 @@ import Popup from '../../popup';
 import { CloseModal } from '../../../helpers/closeModal';
 
 const UserAvatar = styled.img`
+	cursor:pointer;
 	width: 30px;
 	height: 30px;
-	border-radius:50%;
-	cursor:pointer;
+	border-radius: 8px;
 	${({ clicked }) => clicked && css`
 		border: 2px solid black;
 	`}
-		@media ${({ theme }) => theme.device.mobileS} {
-  	width: 30px;
-		height: 30px;
-  }
-	@media ${({ theme }) => theme.device.tablet} {
-		width: 30px;
-		height: 30px;
-  }
 `;
 
 const UserMenuWrapper = styled.div`

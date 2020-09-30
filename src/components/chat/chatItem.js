@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ChatAvatar = styled.img`
+	border-radius: 12px;
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
 `;
 
 export const ChatContainer = styled(Link)`
 	text-decoration:none;
 	width: 95%;
-	height: 20%;
-	margin-top:15px;
+	height: 75px;
+	margin-top:10px;
 	padding: 5px;
 	border-radius: 10px;
 	display: flex;
@@ -23,13 +23,6 @@ export const ChatContainer = styled(Link)`
 export const ChatTitle = styled.p`
 	color:${({ theme }) => theme.colors.black};
 	margin-left: 15px;
-
-	@media ${({ theme }) => theme.device.mobileS} {
-		display:none;
-  }
-	@media ${({ theme }) => theme.device.laptop} {
-		display: flex;
-  }
 `;
 
 const ChatItem = ({ item: { id, name, avatar } }) => (

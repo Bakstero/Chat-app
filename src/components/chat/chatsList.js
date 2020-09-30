@@ -14,10 +14,10 @@ const Wrapper = styled.div`
 	align-items:center;
 `;
 const NewChatAvatar = styled.img`
+	border-radius: 12px;
+	filter: brightness(50%);
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
-	filter: brightness(50%);
 `;
 
 const ChatsList = () => {
@@ -33,7 +33,7 @@ const ChatsList = () => {
 		<Wrapper>
 			{!isLoading ? (
 				<>
-					<ChatContainer to={`/new/chat`}><NewChatAvatar src={avatar} /><ChatTitle>Create new chat</ChatTitle> </ChatContainer>
+					<ChatContainer to={'/new/chat'}><NewChatAvatar src={avatar} /><ChatTitle>Create new chat</ChatTitle> </ChatContainer>
 					{chats.map((chat, index) => (
 						<ChatItem item={chat} key={index}/>
 					))}

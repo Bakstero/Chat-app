@@ -6,7 +6,7 @@ import { selectCurrentUser } from '../../shared/auth/authSlice';
 const ChatAvatar = styled.img`
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
+	border-radius: 8px;
 `;
 
 const Container = styled.div`

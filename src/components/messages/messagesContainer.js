@@ -4,7 +4,6 @@ import MessagesList from './messagesList';
 import CreateMessageForm from './createMessageForm';
 
 const Wrapper = styled.div`
-	margin-top:5vh;
 	width: 60%;
 	height: 100%;
 	display: flex;
@@ -12,7 +11,7 @@ const Wrapper = styled.div`
 	background-color:${({ theme }) => theme.colors.background};
 	border-right: 1px solid ${({ theme }) => theme.colors.border};
 	@media ${({ theme }) => theme.device.mobileS} {
-			width: 100%;
+		width: 100%;
   }
 	@media ${({ theme }) => theme.device.laptop} {
 		width: 60%;

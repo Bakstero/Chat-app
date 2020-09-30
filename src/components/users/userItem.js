@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const Wrapper = styled(Link)`
 	text-decoration: none;
@@ -10,13 +10,13 @@ const Wrapper = styled(Link)`
 	flex-direction: column;
 	align-items:center;
 	justify-content:center;
-	margin: 0px 15px 0px 15px;
+	margin: 0px 19px 0px 19px;
 `;
 
 const UserAvatar = styled.img`
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 12px;
 `;
 
 const UserName = styled.span`
@@ -33,6 +33,14 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items:center;
 	justify-content:center;
+	${props => props.text && css`
+		@media ${({ theme }) => theme.device.mobileS} {
+			display: none;
+		}
+		@media ${({ theme }) => theme.device.laptop} {
+			display: flex;
+		}
+	`}
 `;
 
 const UserItem = ({ userItem: { id, name, avatar } }) => (
@@ -40,8 +48,8 @@ const UserItem = ({ userItem: { id, name, avatar } }) => (
 		<Container>
 			<UserAvatar src={avatar} alt='' />
 		</Container>
-		<Container>
-			<UserName>{name}</UserName>
+		<Container text>
+			<UserName >{name}</UserName>
 		</Container>
 	</Wrapper>
 );

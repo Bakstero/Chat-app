@@ -9,16 +9,17 @@ import { CreateChat } from '../../shared/chat/createChatSlice';
 const Wrapper = styled.div`
 	padding-top:10vh;
 	width: 60%;
-	height: 100%;
+	height: 100vh;
 	display: flex;
 	flex-direction:column;
 	background-color:${({ theme }) => theme.colors.background};
 	border-right: 1px solid ${({ theme }) => theme.colors.border};
 	@media ${({ theme }) => theme.device.mobileS} {
-			width: 100%;
+		width: 100%;
   }
-	@media ${({ theme }) => theme.device.laptop} {
+	@media ${({ theme }) => theme.device.mobileL} {
 		width: 60%;
+		padding-left:0vh;
   }
 `;
 const FormContainer = styled.form`
@@ -42,14 +43,28 @@ const NewChatInput = styled.input`
 
 export const CreateButton = styled.button`
 	margin-left: 15px;
-	width: 50px;
+	width: 120px;
 	height: 50px;
 	padding: 0%;
 	border:none;
+	border-radius:12px;
 	background:none;
 	color:black;
 	cursor: pointer;
 	outline:none;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	:hover {
+		border: 1px solid ${({ theme }) => theme.colors.border}
+	}
+	@media ${({ theme }) => theme.device.mobileS} {
+	width: 100px;
+	}
+	@media ${({ theme }) => theme.device.laptop} {
+		width: 120px;
+
+	}
 `;
 
 const CreateChatForm = () => {
@@ -84,7 +99,7 @@ const CreateChatForm = () => {
 					<AiOutlineEdit size={30} />
 				</CreateButton>
 			</FormContainer>
-			<CreateButton><AiOutlineUserAdd size={30} /></CreateButton>
+			<CreateButton><AiOutlineUserAdd size={30} />Add users</CreateButton>
 		</Wrapper>
 	);
 };

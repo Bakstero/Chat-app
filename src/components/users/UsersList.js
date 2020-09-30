@@ -9,14 +9,15 @@ const Wrapper = styled.div`
 	display:flex;
 	width: 60%;
 	height:100px;
-	padding:10px;
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
-		padding-left:20%;
+		padding-left:0%;
+		height:70px;
   }
-	@media ${({ theme }) => theme.device.laptop} {
+	@media ${({ theme }) => theme.device.tablet} {
 		width: 60%;
 		margin-top: 8vh;
+		height:100px;
   }
 `;
 

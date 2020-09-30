@@ -18,6 +18,14 @@ const Wrapper = styled.div`
 	padding: 10px;
 	background-color:${({ theme }) => theme.colors.background};
 	border-right: 1px solid ${({ theme }) => theme.colors.border};
+	@media ${({ theme }) => theme.device.mobileS} {
+		width: 100%;
+		margin:0;
+  }
+	@media ${({ theme }) => theme.device.laptop} {
+		width: 60%;
+		margin-left:0%;
+  }
 `;
 
 const CreateMessageForm = () => {
