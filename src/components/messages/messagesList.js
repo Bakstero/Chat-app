@@ -13,8 +13,7 @@ const Wrapper = styled.div`
 	overflow-y: auto;
 	::-webkit-scrollbar-track {
 		background-color: none;
-		margin-bottom:5vh;
-		margin-top:1vh;
+		margin-top: 7vh;
 	}
 	::-webkit-scrollbar {
 		width: 10px;
@@ -23,7 +22,7 @@ const Wrapper = styled.div`
 	::-webkit-scrollbar-thumb {
 		border-radius: 10px;
 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-		background-color: ${({ theme }) => theme.colors.white};
+		background-color: ${({ theme }) => theme.colors.scrollbarColor};
 	}
 `;
 

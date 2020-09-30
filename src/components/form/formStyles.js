@@ -16,11 +16,11 @@ export const HeaderForm = styled.div`
 	display: flex;
 	align-items:center;
 	justify-content: space-between;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
 `;
 
 export const TitleForm = styled.h2`
-	color: ${({ theme }) => theme.colors.black};
+	color:${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const ErrorTitle = styled.p`
@@ -49,17 +49,17 @@ export const Input = styled.input`
     padding: 15px;
 		margin: 20px 0px 20px 0px;
     font-size: 16px;
-		background-color:${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
+		background-color:${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.textPrimary};
 		border:none;
 		border-radius:0;
-		border-bottom: 1px solid ${({ theme }) => theme.colors.dark};
+		border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
 	&:focus {
       outline: none;
-			border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+			border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
     }
 	${props => props.submit && css`
-		background-color:${({ theme }) => theme.colors.white};
+		background-color:${({ theme }) => theme.colors.background};
 		cursor: pointer;
   `}
 }
@@ -73,7 +73,8 @@ export const FooterForm = styled.div`
 	flex-direction:column;
 	align-items:center;
 	justify-content: center;
-	border-top: 1px solid black;
+	background-color:${({ theme }) => theme.colors.background};
+	border-top: 1px solid ${({ theme }) => theme.colors.formLine};
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
 		padding: 10px 0px 0px 0px;
@@ -135,8 +136,8 @@ export const CloseButton = styled.div`
 	padding: 0%;
 	border-radius:none;
 	justify-content: center;
-	background-color:${({ theme }) => theme.colors.white};
-	color:black;
+	background-color:${({ theme }) => theme.colors.background};
+	color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const MinimalistButton = styled.button`
@@ -144,7 +145,7 @@ export const MinimalistButton = styled.button`
 	height: 35px;
 	background: none;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.textPrimary};
 	border-radius: 5px;
 	margin-right:20px;
 	font-size:${({ theme }) => theme.fontSize.regular};

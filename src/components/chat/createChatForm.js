@@ -37,7 +37,7 @@ const NewChatInput = styled.input`
 	padding: 10px;
 	outline:none;
 	::placeholder {
-  	color: ${({ theme }) => theme.colors.black};
+  	color: ${({ theme }) => theme.colors.textPrimary};
 	}
 `;
 
@@ -49,7 +49,7 @@ export const CreateButton = styled.button`
 	border:none;
 	border-radius:12px;
 	background:none;
-	color:black;
+	color: ${({ theme }) => theme.colors.textPrimary};
 	cursor: pointer;
 	outline:none;
 	display:flex;
@@ -59,7 +59,7 @@ export const CreateButton = styled.button`
 		border: 1px solid ${({ theme }) => theme.colors.border}
 	}
 	@media ${({ theme }) => theme.device.mobileS} {
-	width: 100px;
+		width: 100px;
 	}
 	@media ${({ theme }) => theme.device.laptop} {
 		width: 120px;

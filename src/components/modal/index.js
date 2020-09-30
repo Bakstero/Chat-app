@@ -8,7 +8,7 @@ const ModalWrapper = styled.div`
 	left:0;
 	width:100%;
 	height:100vh;
-	background-color:rgba(0,0,0,0.8);
+	background-color:${({ theme }) => theme.colors.modalBackground};
 	display: flex;
 	align-items:center;
 	justify-content: center;
@@ -21,7 +21,7 @@ const ModalContainter = styled.div`
 	flex-direction:column;
 	width:30vw;
 	height:70vh;
-	background-color: ${({ theme }) => theme.colors.white};
+	background-color: ${({ theme }) => theme.colors.background};
 	border-radius:8px;
 
 	@media ${({ theme }) => theme.device.mobileS} {

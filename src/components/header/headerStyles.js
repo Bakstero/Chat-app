@@ -7,7 +7,7 @@ export const Wrapper = styled.header`
 	z-index:999;
 	top:0;
 	position:fixed;
-	background-color:${({ theme }) => theme.colors.white} ;
+	background-color:${({ theme }) => theme.colors.background} ;
 	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
 	@media ${({ theme }) => theme.device.mobileS} {

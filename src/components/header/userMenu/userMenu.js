@@ -16,7 +16,7 @@ const UserAvatar = styled.img`
 	height: 30px;
 	border-radius: 8px;
 	${({ clicked }) => clicked && css`
-		border: 2px solid black;
+		border: 2px solid ${({ theme }) => theme.colors.border};
 	`}
 `;
 
@@ -48,7 +48,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 8px 16px 8px 16px;
-	color:${({ theme }) => theme.colors.black};
+	color: ${({ theme }) => theme.colors.textPrimary};
 	font-weight:${({ theme }) => theme.fontWeight.regular};
 	font-size:${({ theme }) => theme.fontSize.regular};
 `;

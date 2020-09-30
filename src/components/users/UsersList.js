@@ -6,26 +6,26 @@ import UserItem from './userItem';
 
 const Wrapper = styled.div`
 	margin-top: 10vh;
-	display:flex;
+	display: flex;
 	width: 60%;
-	height:100px;
+	height: 100px;
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
-		padding-left:0%;
-		height:70px;
+		padding-left: 0%;
+		height: 70px;
   }
 	@media ${({ theme }) => theme.device.tablet} {
 		width: 60%;
 		margin-top: 8vh;
-		height:100px;
+		height: 100px;
   }
 `;
 
 const Container = styled.div`
-	display:flex;
-	min-height:100%;
+	display: flex;
+	min-height: 100%;
 	overflow: overlay;
-	overflow-Y:none;
+	overflow-Y: none;
 `;
 
 const UsersList = () => {

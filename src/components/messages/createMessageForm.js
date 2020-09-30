@@ -8,22 +8,20 @@ import { SendMsg } from '../../shared/messages/createMessageSlice';
 import { Button } from '../button/button';
 
 const Wrapper = styled.div`
-	position:fixed;
 	bottom:0;
-	width: 60%;
+	width: 100%;
 	height:10vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
 	background-color:${({ theme }) => theme.colors.background};
-	border-right: 1px solid ${({ theme }) => theme.colors.border};
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
 		margin:0;
   }
 	@media ${({ theme }) => theme.device.laptop} {
-		width: 60%;
+		width: 100%;
 		margin-left:0%;
   }
 `;

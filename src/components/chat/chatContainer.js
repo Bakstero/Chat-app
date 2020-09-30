@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction:column;
 	align-items:center;
-	background-color:${({ theme }) => theme.colors.white};
+	background-color:${({ theme }) => theme.colors.background};
 	border-right: 1px solid ${({ theme }) => theme.colors.border};
 	left:0;
 	top:0;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 		flex-direction:column;
 		align-items:flex-start;
 		justify-content:flex-start;
-		background-color:${({ theme }) => theme.colors.white};
+		background-color:${({ theme }) => theme.colors.background};
   }
 	@media ${({ theme }) => theme.device.tablet} {
 		padding-top:5vh;
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 		display: flex;
 		flex-direction:column;
 		align-items:center;
-		background-color:${({ theme }) => theme.colors.white};
+		background-color:${({ theme }) => theme.colors.background};
 		border-right: 1px solid ${({ theme }) => theme.colors.border};
 		left:0;
 		top:0;
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
 		display: flex;
 		flex-direction:column;
 		align-items:center;
-		background-color:${({ theme }) => theme.colors.white};
+		background-color:${({ theme }) => theme.colors.background};
 		border-right: 1px solid ${({ theme }) => theme.colors.border};
 		left:0;
 		top:0;

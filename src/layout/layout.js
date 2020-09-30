@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 		padding:0;
 		margin:0;
 		font-family: 'Montserrat';
-		color: black;
+		color: ${({ theme }) => theme.colors.textPrimary};
 	}
 
 	*, *::before, *::after {

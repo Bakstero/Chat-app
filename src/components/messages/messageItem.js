@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../shared/auth/authSlice';
 
 const ChatAvatar = styled.img`
-	width: 40px;
-	height: 40px;
+	width: 20px;
+	height: 20px;
 	border-radius: 8px;
 `;
 
