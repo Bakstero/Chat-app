@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiFillFacebook, AiFillGoogleSquare, AiOutlineClose } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	FormContainter,
 	HeaderForm,
@@ -15,15 +16,26 @@ import {
 	TextButton,
 } from './formStyles';
 import Modal from '../modal/index';
-import { googleAuth, fbAuth, emailAuth } from '../../services/authProviders';
+import { googleAuth, fbAuth } from '../../services/authProviders';
 import { CloseModal } from '../../helpers/closeModal';
+import { errorLogin, errorLoginuser } from '../../shared/auth/authSlice';
+import { auth } from '../../services/firebase';
+import {
+	sendUserDataUsingForm,
+	UpdateUserDataAferAuth,
+} from '../../services/sendUserDataToFirebase';
 
 const RegisterUser = () => {
+	const dispatch = useDispatch();
 	const { register, handleSubmit, errors } = useForm();
 	const [modal, openModal] = useState(false);
+	const firebaseError = useSelector(errorLoginuser);
 
 	const onSubmit = ({ email, password, name }) => {
-		emailAuth(email, password, name);
+		auth().createUserWithEmailAndPassword(email, password)
+			.then(() => UpdateUserDataAferAuth(name))
+			.then(() => sendUserDataUsingForm(name))
+			.catch(error => dispatch(errorLogin(error.message)));
 	};
 
 	return (
@@ -67,6 +79,8 @@ const RegisterUser = () => {
 						{errors.password?.type === 'minLength'
 							&& <ErrorTitle>Min lenght is 6</ErrorTitle>}
 						<Input submit type="submit" />
+						{firebaseError !== null
+							&& <ErrorTitle>{firebaseError}</ErrorTitle>}
 					</Form>
 					<FooterForm>
 						<CustomSubmit google onClick={googleAuth}>

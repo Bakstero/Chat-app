@@ -35,7 +35,7 @@ const Container = styled.div`
 	justify-content:center;
 `;
 
-const UserItem = ({ user: { id, name, avatar } }) => (
+const UserItem = ({ userItem: { id, name, avatar } }) => (
 	<Wrapper to={`/user/${id}`}>
 		<Container>
 			<UserAvatar src={avatar} alt='' />

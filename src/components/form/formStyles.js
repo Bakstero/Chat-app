@@ -26,6 +26,7 @@ export const TitleForm = styled.h2`
 export const ErrorTitle = styled.p`
 	color:${({ theme }) => theme.colors.error};
 	margin:0;
+	font-size: 10px;
 `;
 
 export const Form = styled.form`
@@ -34,6 +35,13 @@ export const Form = styled.form`
 	height:auto;
 	display:flex;
 	flex-direction:column;
+	@media ${({ theme }) => theme.device.mobileS} {
+		padding:0%;
+  }
+
+	@media ${({ theme }) => theme.device.tablet} {
+			padding: 10%;
+  }
 
 `;
 

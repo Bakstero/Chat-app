@@ -26,8 +26,8 @@ const ChatsList = () => {
 		<Wrapper>
 			{!isLoading ? (
 				<>
-					{chats.map(chat => (
-						<ChatItem item={chat} key/>
+					{chats.map((chat, index) => (
+						<ChatItem item={chat} key={index}/>
 					))}
 				</>
 			) : (

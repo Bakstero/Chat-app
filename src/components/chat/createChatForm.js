@@ -87,9 +87,7 @@ const CreateChatForm = () => {
 					<AiOutlineEdit size={30} />
 				</CreateButton>
 			</FormContainer>
-			<CreateButton onClick={() => alert('add auth')}>
-				<AiOutlineUserAdd size={30} />
-			</CreateButton>
+			<CreateButton><AiOutlineUserAdd size={30} /></CreateButton>
 		</Wrapper>
 	);
 };

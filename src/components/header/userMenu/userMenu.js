@@ -45,7 +45,7 @@ const Item = styled(Link)`
 	&:hover {
 		background-color:${({ theme }) => theme.colors.background};
 	}
-	${props => props.lastItem && css`
+	${props => props.lastItem	 && css`
 		border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   `}
 `;

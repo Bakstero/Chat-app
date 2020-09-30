@@ -31,7 +31,8 @@ const UsersList = () => {
 		<Wrapper>
 			{!isLoading ? (
 				<Container>
-					{users.map(user => <UserItem user={user} key />)}
+					{users.map((user, index) => <UserItem
+						userItem={user} key={index} />)}
 				</Container>
 			) : (
 				<div>Loading...</div>

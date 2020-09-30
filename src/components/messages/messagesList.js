@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
 import styled from 'styled-components';
 import { fetchMessages } from '../../shared/messages/getMessagesSlice';
-import { selectCurrentUser } from '../../shared/auth/authSlice';
-import { db, dbUpdate } from '../../services/firebase';
 import ScrollBottom from '../../helpers/scrollBottom';
 import MessageItem from './messageItem';
 
@@ -31,7 +28,6 @@ const Wrapper = styled.div`
 `;
 
 const MessagesList = () => {
-	const { name, uid, avatar } = useSelector(selectCurrentUser);
 	const dispatch = useDispatch();
 	const { messages, isLoading } = useSelector(state => state.messages);
 	const { id } = useParams();
@@ -60,7 +56,7 @@ const MessagesList = () => {
 		<>
 			{isLoading ? (<h1>Loading Messages</h1>) : (
 				<Wrapper>
-					{messages.map(message => <MessageItem item={message} />)}
+					{messages.map((message, index) => <MessageItem item={message} key={index} />)}
 					<ScrollBottom />
 				</Wrapper>
 			)}

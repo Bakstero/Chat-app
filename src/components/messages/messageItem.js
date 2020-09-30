@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Timestamp from 'react-timestamp';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../shared/auth/authSlice';
 

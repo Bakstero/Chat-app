@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiFillFacebook, AiFillGoogleSquare, AiOutlineClose } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../modal/index';
-import { googleAuth, fbAuth, loginAuth } from '../../services/authProviders';
+import { googleAuth, fbAuth } from '../../services/authProviders';
 import { CloseModal } from '../../helpers/closeModal';
+import { errorLogin, errorLoginuser } from '../../shared/auth/authSlice';
 import {
 	FormContainter,
 	HeaderForm,
@@ -15,15 +17,18 @@ import {
 	ErrorTitle,
 	MinimalistButton,
 	CloseButton, TextButton,
-
 } from './formStyles';
+import { auth } from '../../services/firebase';
 
 const UserLogin = () => {
+	const dispatch = useDispatch();
 	const { register, handleSubmit, errors } = useForm();
 	const [modal, openModal] = useState(false);
+	const firebaseError = useSelector(errorLoginuser);
 
 	const onSubmit = ({ email, password }) => {
-		loginAuth(email, password);
+		auth().signInWithEmailAndPassword(email, password)
+			.catch(error => dispatch(errorLogin(error.message)));
 	};
 
 	return (
@@ -56,6 +61,8 @@ const UserLogin = () => {
 						/>
 						{errors.password?.type === 'required' && <ErrorTitle>Password is required.</ErrorTitle>}
 						<Input submit type="submit" />
+						{firebaseError !== null
+							&& <ErrorTitle>{firebaseError}</ErrorTitle>}
 					</Form>
 					<FooterForm>
 						<CustomSubmit google onClick={googleAuth}>
