@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ChatsList from './chatsList';
-import CreateChatForm from './createChatForm';
 
 const Wrapper = styled.div`
 	padding-top:5vh;
@@ -19,7 +18,6 @@ const Wrapper = styled.div`
 
 const ChatContainer = () => (
 	<Wrapper>
-		<CreateChatForm />
 		<ChatsList/>
 	</Wrapper>
 );

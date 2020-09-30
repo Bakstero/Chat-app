@@ -5,12 +5,19 @@ import { fetchUsers } from '../../shared/users/getUsersSlice';
 import UserItem from './userItem';
 
 const Wrapper = styled.div`
-	margin-top: 6vh;
+	margin-top: 10vh;
 	display:flex;
-	justify-content:center;
 	width: 60%;
 	height:100px;
 	padding:10px;
+	@media ${({ theme }) => theme.device.mobileS} {
+		width: 100%;
+		padding-left:20%;
+  }
+	@media ${({ theme }) => theme.device.laptop} {
+		width: 60%;
+		margin-top: 8vh;
+  }
 `;
 
 const Container = styled.div`

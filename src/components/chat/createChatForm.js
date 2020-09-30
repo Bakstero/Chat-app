@@ -7,28 +7,25 @@ import { selectCurrentUser } from '../../shared/auth/authSlice';
 import { CreateChat } from '../../shared/chat/createChatSlice';
 
 const Wrapper = styled.div`
-	width: 95%;
-	height: 20%;
-	margin-top:15px;
-	padding: 0px;
-	border-radius: 10px;
+	padding-top:10vh;
+	width: 60%;
+	height: 100%;
 	display: flex;
-	align-items:center;
-	justify-content: flex-start;
+	flex-direction:column;
+	background-color:${({ theme }) => theme.colors.background};
+	border-right: 1px solid ${({ theme }) => theme.colors.border};
+	@media ${({ theme }) => theme.device.mobileS} {
+			width: 100%;
+  }
+	@media ${({ theme }) => theme.device.laptop} {
+		width: 60%;
+  }
 `;
-
 const FormContainer = styled.form`
 	padding: 5px;
 	display: flex;
 	align-items:center;
 	justify-content: center;
-`;
-
-const NewChatAvatar = styled.img`
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	filter: brightness(50%);
 `;
 
 const NewChatInput = styled.input`
@@ -75,9 +72,9 @@ const CreateChatForm = () => {
 		setValue('name');
 	};
 	return (
-		<Wrapper>
+		<Wrapper to={'/new/chat'}>
 			<FormContainer onSubmit={handleSubmit(onSubmit)}>
-				<NewChatAvatar src={avatar} />
+
 				<NewChatInput
 					name="name"
 					placeholder="New chat"

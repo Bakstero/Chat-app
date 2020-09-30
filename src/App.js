@@ -4,6 +4,7 @@ import Account from './page/account';
 import HomePage from './page/homePage';
 import Dashboard from './page/dashboard';
 import ChatPage from './page/chat';
+import NewChatPage from './page/newChat';
 import PrivateRoute from './routes/privateRoute';
 import PublicRoute from './routes/publicRoute';
 import * as ROUTE from './routes/routes';
@@ -14,6 +15,7 @@ const App = () => (
 			<PublicRoute component={HomePage} path={ROUTE.HOME} exact />
 			<PrivateRoute component={Dashboard} path={ROUTE.DASHBOARD} />
 			<PrivateRoute component={ChatPage} path={ROUTE.CHAT}/>
+			<PrivateRoute component={NewChatPage} path={ROUTE.NEW_CHAT} />
 			<PrivateRoute component={Account} path={ROUTE.USER} />
 		</Switch>
 	</Router>

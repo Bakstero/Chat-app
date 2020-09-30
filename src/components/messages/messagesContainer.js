@@ -11,6 +11,12 @@ const Wrapper = styled.div`
 	flex-direction:column;
 	background-color:${({ theme }) => theme.colors.background};
 	border-right: 1px solid ${({ theme }) => theme.colors.border};
+	@media ${({ theme }) => theme.device.mobileS} {
+			width: 100%;
+  }
+	@media ${({ theme }) => theme.device.laptop} {
+		width: 60%;
+  }
 `;
 
 const MessagesContainter = () => (

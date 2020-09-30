@@ -8,7 +8,7 @@ const ChatAvatar = styled.img`
 	border-radius: 50%;
 `;
 
-const ChatContainer = styled(Link)`
+export const ChatContainer = styled(Link)`
 	text-decoration:none;
 	width: 95%;
 	height: 20%;
