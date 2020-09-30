@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
   }
-	@media ${({ theme }) => theme.device.laptop} {
+	@media ${({ theme }) => theme.device.tablet} {
 		width: 60%;
   }
 `;

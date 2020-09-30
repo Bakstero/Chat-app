@@ -9,7 +9,7 @@ import MessageItem from './messageItem';
 const Wrapper = styled.div`
 	width:100%;
 	height: 90vh;
-	padding: 12vh 0vh 10vh 0vh;
+	padding: 10vh 0vh 0vh 0vh;
 	overflow-y: auto;
 	::-webkit-scrollbar-track {
 		background-color: none;

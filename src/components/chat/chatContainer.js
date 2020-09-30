@@ -58,24 +58,9 @@ const Wrapper = styled.div`
 		top:0;
   }
 	`}
-
-	${props => props.Chat && css`;
-	@media ${({ theme }) => theme.device.mobileS} {
-		display: none;
-  }
-	@media ${({ theme }) => theme.device.tablet} {
-		display: flex;
-  }
-	`}
 `;
 
 export const ChatContainerOffMobile = () => (
-	<Wrapper Chat>
-		<ChatsList />
-	</Wrapper>
-);
-
-export const ChatContainerMobile = () => (
 	<Wrapper Mobile>
 		<ChatsList/>
 	</Wrapper>
