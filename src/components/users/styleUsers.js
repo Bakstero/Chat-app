@@ -16,14 +16,15 @@ export const UserListWrapper = styled.div`
   }
 	@media ${({ theme }) => theme.device.tablet} {
 		width: 60%;
-		margin-top: 8vh;
+		margin-top: 7vh;
 		height: 100px;
   }
 `;
 
 export const UserListContainer = styled.div`
 	display: flex;
-	min-height: 100%;
+	width:100%;
+	height: 100%;
 	overflow: overlay;
 `;
 
@@ -31,13 +32,17 @@ export const UserListContainer = styled.div`
 
 export const ItemWrapper = styled(Link)`
 	text-decoration: none;
-	min-width: 60px;
-	height: 100%;
 	display:flex;
 	flex-direction: column;
 	align-items:center;
 	justify-content:center;
-	margin: 0px 19px 0px 19px;
+	border-radius:12px;
+	transition: 0.4s;
+
+	&:hover {
+		transition: 0.4s;
+		background-color:${({ theme }) => theme.colors.scdBackground};
+	}
 `;
 
 export const UserAvatar = styled.img`
@@ -54,15 +59,17 @@ export const UserName = styled.span`
 `;
 
 export const ItemContainer = styled.div`
-	width: 50px;
-	height: 50%;
+	width: 100px;
+	height: 70%;
 	display:flex;
 	flex-direction: column;
 	align-items:center;
 	justify-content:center;
+
 	${props => props.text && css`
 		@media ${({ theme }) => theme.device.mobileS} {
 			display: none;
+			height: 30%;
 		}
 		@media ${({ theme }) => theme.device.laptop} {
 			display: flex;

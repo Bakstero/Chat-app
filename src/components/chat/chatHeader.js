@@ -4,7 +4,7 @@ import {
 } from './styleChat';
 
 const ChatsHeader = () => (
-	<ChatHeaderContainer title>
+	<ChatHeaderContainer>
 		<ChatTitle title>Chats</ChatTitle>
 		<ChatContainer title to={'/new/chat'}>
 			<NewChatIcon />

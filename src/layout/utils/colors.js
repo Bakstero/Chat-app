@@ -1,7 +1,7 @@
 export const colors = {
 	white: '#ffffff',
 	black: '#000000',
-	formLine: '#ffffff', // ? #000000
+	LogoColor: '#ffffff', // ? #000000
 	scrollbarColor: '#202020', // ? #ffffff
 	scrollBorder: 'rgba(0,0,0,0.5)', // ? #ffffff
 	textPrimary: '#fcfcfc', // ? #0d0d0d

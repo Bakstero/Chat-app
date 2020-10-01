@@ -28,8 +28,10 @@ export const Item = styled(Link)`
 	text-decoration:none;
 	width:100%;
 	height:25%;
+	transition: 0.4s;
 	&:hover {
-		background-color:${({ theme }) => theme.colors.background};
+		background-color:${({ theme }) => theme.colors.scdBackground};
+		transition: 0.4s;
 	}
 	${props => props.lastItem && css`
 		border-bottom: 1px solid ${({ theme }) => theme.colors.border};

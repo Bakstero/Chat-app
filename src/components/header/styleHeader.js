@@ -58,7 +58,7 @@ export const AuthDiv = styled.div`
 export const TextLogo = styled(LogoText)`
 	width: 200px;
 	height: 40px;
-	fill: ${({ theme }) => theme.colors.formLine};
+	fill: ${({ theme }) => theme.colors.LogoColor};
 
 	@media ${({ theme }) => theme.device.mobileS} {
   	width: 100px;

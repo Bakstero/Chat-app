@@ -57,17 +57,13 @@ export const ChatHeaderContainer = styled.div`
 	border-radius: 10px;
 	display: flex;
 	align-items:center;
-	justify-content: flex-start;
-
-${props => props.title && css`
-		justify-content: space-between;
-  `}
+	justify-content:  space-between;
 `;
 
 export const NewChatIcon = styled(AiOutlineEdit)`
-	width: 35px;
-	height: 35px;
-	fill: ${({ theme }) => theme.colors.formLine};
+	width: 30px;
+	height: 30px;
+	fill: ${({ theme }) => theme.colors.LogoColor};
 `;
 
 // ? Chat List
@@ -100,9 +96,16 @@ export const ChatContainer = styled(Link)`
 	justify-content: flex-start;
 
 ${props => props.title && css`
+		margin-top:0px;
 		justify-content: center;
-		width: 35px;
-		height: 35px;
+		width: 50px;
+		height: 50px;
+		transition: 0.4s;
+
+		&:hover {
+			transition: 0.4s;
+			background-color:${({ theme }) => theme.colors.scdBackground};
+		}
   `}
 `;
 
@@ -114,6 +117,7 @@ ${props => props.title && css`
 		color:${({ theme }) => theme.colors.textPrimary};
 		font-size:${({ theme }) => theme.fontSize.title};
 		font-weight:${({ theme }) => theme.fontWeight.bold};
+		margin:0px;
 		margin-left:5px;
   `}
 `;

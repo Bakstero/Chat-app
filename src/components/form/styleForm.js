@@ -16,7 +16,7 @@ export const HeaderForm = styled.div`
 	display: flex;
 	align-items:center;
 	justify-content: space-between;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 export const TitleForm = styled.h2`
@@ -53,13 +53,13 @@ export const Input = styled.input`
 	color: ${({ theme }) => theme.colors.textPrimary};
 	border:none;
 	border-radius:0;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	&:focus {
 		outline: none;
-		border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
+		border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   }
 	${props => props.submit && css`
 		background-color:${({ theme }) => theme.colors.background};
@@ -77,7 +77,7 @@ export const FooterForm = styled.div`
 	align-items:center;
 	justify-content: center;
 	background-color:${({ theme }) => theme.colors.background};
-	border-top: 1px solid ${({ theme }) => theme.colors.formLine};
+	border-top: 1px solid ${({ theme }) => theme.colors.border};
 
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
@@ -90,7 +90,7 @@ export const FooterForm = styled.div`
 	@media ${({ theme }) => theme.device.tablet} {
 		width: 100%;
 		padding: 10px;
-		border-top: 1px solid ${({ theme }) => theme.colors.formLine};
+		border-top: 1px solid ${({ theme }) => theme.colors.border};
   }
 `;
 
