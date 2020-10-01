@@ -1,84 +1,22 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import {
-	AiOutlineUser, AiOutlineEdit, AiOutlineSetting, AiOutlineLogout,
-} from 'react-icons/ai';
 import { selectCurrentUser } from '../../../shared/auth/authSlice';
 import { logout } from '../../../services/authProviders';
 import Popup from '../../popup';
 import { CloseModal } from '../../../helpers/closeModal';
-
-const UserAvatar = styled.img`
-	cursor:pointer;
-	width: 30px;
-	height: 30px;
-	border-radius: 8px;
-	${({ clicked }) => clicked && css`
-		border: 2px solid ${({ theme }) => theme.colors.border};
-	`}
-`;
-
-const UserMenuWrapper = styled.div`
-	display: flex;
-	align-items:center;
-	justify-content: center;
-	flex-direction:column;
-`;
-
-const Item = styled(Link)`
-	display: flex;
-	align-items:center;
-	justify-content:center;
-	text-decoration:none;
-	width:100%;
-	height:25%;
-	&:hover {
-		background-color:${({ theme }) => theme.colors.background};
-	}
-	${props => props.lastItem	 && css`
-		border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  `}
-`;
-
-const Container = styled.div`
-	width:100%;
-	height:100%;
-	display: flex;
-	align-items: center;
-	padding: 8px 16px 8px 16px;
-	color: ${({ theme }) => theme.colors.textPrimary};
-	font-weight:${({ theme }) => theme.fontWeight.regular};
-	font-size:${({ theme }) => theme.fontSize.regular};
-`;
-
-const ProfileIcon = styled(AiOutlineUser)`
-	width:20px;
-	height:20px;
-	margin-right: 10px;
-`;
-
-const EditIcon = styled(AiOutlineEdit)`
-	width:20px;
-	height:20px;
-	margin-right: 10px;
-`;
-
-const SettingsIcon = styled(AiOutlineSetting)`
-	width:20px;
-	height:20px;
-	margin-right: 10px;
-`;
-
-const LogoutIcon = styled(AiOutlineLogout)`
-	width:20px;
-	height:20px;
-	margin-right: 10px;
-`;
+import {
+	UserAvatar,
+	UserMenuWrapper,
+	Item,
+	Container,
+	ProfileIcon,
+	EditIcon,
+	SettingsIcon,
+	LogoutIcon,
+} from './styleUserMenu';
 
 const UserMenu = () => {
-	const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/appwillay.appspot.com/o/avatars%2FDefaultUserAvatar.jpg?alt=media&token=aa410a73-9c7f-4d93-926c-37dae73dc136'
+	const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/appwillay.appspot.com/o/avatars%2FDefaultUserAvatar.jpg?alt=media&token=aa410a73-9c7f-4d93-926c-37dae73dc136';
 	const { avatar, uid } = useSelector(selectCurrentUser);
 	const [popup, openPopup] = useState(false);
 	return (

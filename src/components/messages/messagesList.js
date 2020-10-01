@@ -1,30 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
 import { fetchMessages } from '../../shared/messages/getMessagesSlice';
 import ScrollBottom from '../../helpers/scrollBottom';
 import MessageItem from './messageItem';
-
-const Wrapper = styled.div`
-	width:100%;
-	height: 90vh;
-	padding: 10vh 0vh 0vh 0vh;
-	overflow-y: auto;
-	::-webkit-scrollbar-track {
-		background-color: none;
-		margin-top: 7vh;
-	}
-	::-webkit-scrollbar {
-		width: 10px;
-		background-color: none;
-	}
-	::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-		background-color: ${({ theme }) => theme.colors.scrollbarColor};
-	}
-`;
+import { ContainerMsgList } from './styleMessageItem';
 
 const MessagesList = () => {
 	const dispatch = useDispatch();
@@ -54,10 +34,10 @@ const MessagesList = () => {
 	return (
 		<>
 			{isLoading ? (<h1>Loading Messages</h1>) : (
-				<Wrapper>
+				<ContainerMsgList>
 					{messages.map((message, index) => <MessageItem item={message} key={index} />)}
 					<ScrollBottom />
-				</Wrapper>
+				</ContainerMsgList>
 			)}
 		</>
 	);

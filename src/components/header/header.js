@@ -6,7 +6,7 @@ import RegisterUser from '../form/register';
 import UserMenu from './userMenu/userMenu';
 import {
 	Wrapper, Nav, AuthDiv, TextLogo,
-} from './headerStyles';
+} from './styleHeader';
 
 const Header = () => {
 	const currentUser = useAuthUser();

@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 		margin:0;
 		font-family: 'Montserrat';
 		color: ${({ theme }) => theme.colors.textPrimary};
+		background: ${({ theme }) => theme.colors.background};
 	}
 
 	*, *::before, *::after {
@@ -17,13 +18,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledWrapper = styled.div`
-	height: 100%;
-	width:100%;
+	min-height: 100vh;
+ 	min-height: -webkit-fill-available;
 	display: flex;
 	flex-direction: column;
 	align-items:center;
 	background: ${({ theme }) => theme.colors.background};
-	position: relative;
+
 `;
 
 const Layout = ({ children }) => (

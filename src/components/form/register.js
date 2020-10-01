@@ -14,7 +14,7 @@ import {
 	MinimalistButton,
 	CloseButton,
 	TextButton,
-} from './formStyles';
+} from './styleForm';
 import Modal from '../modal/index';
 import { googleAuth, fbAuth } from '../../services/authProviders';
 import { CloseModal } from '../../helpers/closeModal';

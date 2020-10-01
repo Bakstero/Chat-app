@@ -17,7 +17,7 @@ import {
 	ErrorTitle,
 	MinimalistButton,
 	CloseButton, TextButton,
-} from './formStyles';
+} from './styleForm';
 import { auth } from '../../services/firebase';
 
 const UserLogin = () => {

@@ -46,18 +46,21 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-    padding: 15px;
-		margin: 20px 0px 20px 0px;
-    font-size: 16px;
-		background-color:${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textPrimary};
-		border:none;
-		border-radius:0;
-		border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
+	padding: 15px;
+	margin: 20px 0px 20px 0px;
+	font-size: 16px;
+	background-color:${({ theme }) => theme.colors.background};
+	color: ${({ theme }) => theme.colors.textPrimary};
+	border:none;
+	border-radius:0;
+	border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	&:focus {
-      outline: none;
-			border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
-    }
+		outline: none;
+		border-bottom: 1px solid ${({ theme }) => theme.colors.formLine};
+  }
 	${props => props.submit && css`
 		background-color:${({ theme }) => theme.colors.background};
 		cursor: pointer;
@@ -75,16 +78,19 @@ export const FooterForm = styled.div`
 	justify-content: center;
 	background-color:${({ theme }) => theme.colors.background};
 	border-top: 1px solid ${({ theme }) => theme.colors.formLine};
+
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
 		padding: 10px 0px 0px 0px;
 		height:35%;
 		justify-content: flex-start;
+		border-top: none;
   }
 
 	@media ${({ theme }) => theme.device.tablet} {
 		width: 100%;
 		padding: 10px;
+		border-top: 1px solid ${({ theme }) => theme.colors.formLine};
   }
 `;
 

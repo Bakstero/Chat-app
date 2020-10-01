@@ -2,31 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import { selectCurrentUser } from '../../shared/auth/authSlice';
-import { SendMsg } from '../../shared/messages/createMessageSlice';
-import { Button } from '../button/button';
+import { selectCurrentUser } from '../../../shared/auth/authSlice';
+import { SendMsg } from '../../../shared/messages/createMessageSlice';
+import { NewMsgWrapper, Button } from './styleNewMessage';
 
-const Wrapper = styled.div`
-	bottom:0;
-	width: 100%;
-	height:10vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px;
-	background-color:${({ theme }) => theme.colors.background};
-	@media ${({ theme }) => theme.device.mobileS} {
-		width: 100%;
-		margin:0;
-  }
-	@media ${({ theme }) => theme.device.laptop} {
-		width: 100%;
-		margin-left:0%;
-  }
-`;
-
-const CreateMessageForm = () => {
+const NewMessageForm = () => {
 	const { id } = useParams();
 	const {
 		register, handleSubmit, setValue,
@@ -46,7 +26,7 @@ const CreateMessageForm = () => {
 		setValue('text');
 	};
 	return (
-		<Wrapper>
+		<NewMsgWrapper>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
 					name="text"
@@ -54,8 +34,8 @@ const CreateMessageForm = () => {
 				/>
 				<Button type="Submit">Send</Button>
 			</form>
-		</Wrapper>
+		</NewMsgWrapper>
 	);
 };
 
-export default CreateMessageForm;
+export default NewMessageForm;
