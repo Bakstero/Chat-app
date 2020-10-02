@@ -31,6 +31,8 @@ export default getUsersSlice.reducer;
 
 const { usersSuccess, startLoading, hasError } = getUsersSlice.actions;
 
+export const selectAllUser = state => state.users.users;
+
 export const fetchUsers = () => async dispatch => {
 	dispatch(startLoading());
 	try {

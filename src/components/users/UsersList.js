@@ -13,7 +13,6 @@ const UsersList = () => {
 	useEffect(() => {
 		dispatch(fetchUsers());
 	}, [dispatch]);
-
 	return (
 		<UserListWrapper>
 			{!isLoading ? (

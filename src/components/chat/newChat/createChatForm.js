@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineEdit, AiOutlineUserAdd } from 'react-icons/ai';
-import { selectCurrentUser } from '../../../shared/auth/authSlice';
-import { CreateChat } from '../../../shared/chat/createChatSlice';
+//import { selectCurrentUser } from '../../../shared/auth/authSlice';
+import { CreateChat, AuthUser } from '../../../shared/chat/createChatSlice';
 import {
 	Wrapper,
 	FormContainer,
 	NewChatInput,
 	CreateButton,
 } from './styleNewChat';
+import ChatAuthUsers from './chatAuthUsers';
 
 const CreateChatForm = () => {
+	const [authUser, setAuthUsers] = useState(false);
 	const avatar = 'https://firebasestorage.googleapis.com/v0/b/appwillay.appspot.com/o/avatars%2FDefaultUserAvatar.jpg?alt=media&token=aa410a73-9c7f-4d93-926c-37dae73dc136';
 	const dispatch = useDispatch();
-	const { uid } = useSelector(selectCurrentUser);
+	const usersAuth = useSelector(AuthUser);
 	const {
 		register, handleSubmit, setValue,
 	} = useForm();
 
+	// dispatch(addUserAuthSuccess(uid));
+	const OpenUsersContainer = () => {
+		if (authUser === false) {
+			setAuthUsers(true);
+		} else {
+			setAuthUsers(false);
+		}
+	};
+
 	const onSubmit = ({ name }) => {
-		const usersAuth = [uid];
 		const chatData = {
 			name,
 			messages: [],
@@ -43,7 +53,13 @@ const CreateChatForm = () => {
 					<AiOutlineEdit size={30} />
 				</CreateButton>
 			</FormContainer>
-			<CreateButton><AiOutlineUserAdd size={30} />Add users</CreateButton>
+
+			<CreateButton onClick={() => OpenUsersContainer()}>
+				<AiOutlineUserAdd size={30} />
+				Add users
+			</CreateButton>
+
+			{authUser === true && <ChatAuthUsers />}
 		</Wrapper>
 	);
 };
