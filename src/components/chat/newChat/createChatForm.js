@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineEdit, AiOutlineUserAdd } from 'react-icons/ai';
-//import { selectCurrentUser } from '../../../shared/auth/authSlice';
-import { CreateChat, AuthUser } from '../../../shared/chat/createChatSlice';
+import { CreateChat } from '../../../shared/chat/createChatSlice';
+import { allUsersPrm } from '../../../shared/chat/UsersPermissionSlice';
 import {
 	Wrapper,
 	FormContainer,
@@ -13,20 +13,19 @@ import {
 import ChatAuthUsers from './chatAuthUsers';
 
 const CreateChatForm = () => {
-	const [authUser, setAuthUsers] = useState(false);
+	const [usersContainer, openUsersContainer] = useState(false);
 	const avatar = 'https://firebasestorage.googleapis.com/v0/b/appwillay.appspot.com/o/avatars%2FDefaultUserAvatar.jpg?alt=media&token=aa410a73-9c7f-4d93-926c-37dae73dc136';
 	const dispatch = useDispatch();
-	const usersAuth = useSelector(AuthUser);
+	const usersAuth = useSelector(allUsersPrm);
 	const {
 		register, handleSubmit, setValue,
 	} = useForm();
 
-	// dispatch(addUserAuthSuccess(uid));
 	const OpenUsersContainer = () => {
-		if (authUser === false) {
-			setAuthUsers(true);
+		if (usersContainer === false) {
+			openUsersContainer(true);
 		} else {
-			setAuthUsers(false);
+			openUsersContainer(false);
 		}
 	};
 
@@ -59,7 +58,7 @@ const CreateChatForm = () => {
 				Add users
 			</CreateButton>
 
-			{authUser === true && <ChatAuthUsers />}
+			{usersContainer === true && <ChatAuthUsers />}
 		</Wrapper>
 	);
 };

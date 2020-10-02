@@ -1,17 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { addUserAuthSuccess } from '../../../shared/chat/createChatSlice';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUsersPrm, removeUsersPrm, allUsersPrm } from '../../../shared/chat/UsersPermissionSlice';
 
 export const Wrapper = styled.div`
 	width: 100%;
 	height: 75px;
-	background-color:${({ theme }) => theme.colors.background};
+	background-color:${({ theme }) => theme.colors.scdBackground};
 	display: flex;
 	align-items: center;
 	margin: 10px 0px 10px 0px;
 	padding:10px;
 	cursor: pointer;
+	${props => props.active && css`
+		background-color:${({ theme }) => theme.colors.background};
+  `}
 `;
 
 export const Container = styled.div`
@@ -35,14 +38,37 @@ export const UserName = styled.span`
 
 const UserItem = ({ userItem: { id, name, avatar } }) => {
 	const dispatch = useDispatch();
+	const users = useSelector(allUsersPrm);
+	const [active, setActive] = useState(false);
+
+	const ManageUserPermision = uid => {
+		if (users.some(item => item === uid)) {
+			dispatch(removeUsersPrm(uid));
+			setActive(false);
+		} else {
+			dispatch(addUsersPrm(uid));
+			setActive(true);
+		}
+	};
 
 	return (
-		<Wrapper onClick={() => dispatch(addUserAuthSuccess(id))}>
-			<Container>
-				<UserAvatar src={avatar} alt='' />
-				<UserName >{name}</UserName>
-			</Container>
-		</Wrapper>
+		<>
+			{active === false
+				? (<Wrapper onClick={() => ManageUserPermision(id)}>
+					<Container >
+						<UserAvatar src={avatar} alt='' />
+						<UserName >{name}</UserName>
+					</Container>
+				</Wrapper>
+				) : (
+					<Wrapper active onClick={() => ManageUserPermision(id)}>
+						<Container>
+							<UserAvatar src={avatar} alt='' />
+							<UserName >{name}</UserName>
+						</Container>
+					</Wrapper>
+				)}
+		</>
 	);
 };
 

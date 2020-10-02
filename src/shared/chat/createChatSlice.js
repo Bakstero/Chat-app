@@ -5,16 +5,12 @@ const createNewChat = createSlice({
 	name: 'newChat',
 	initialState: {
 		newChat: null,
-		userAuth: [],
 		isLoading: false,
 		error: false,
 	},
 	reducers: {
 		startCreating: state => {
 			state.isLoading = true;
-		},
-		addUserAuthSuccess: (state, action) => {
-			state.userAuth = [...state.userAuth, action.payload];
 		},
 		createChatError: (state, action) => {
 			state.error = action.payload;
@@ -33,7 +29,7 @@ export default createNewChat.reducer;
 export const AuthUser = state => state.newChat.userAuth;
 
 export const {
-	createChatSuccess, startCreating, createChatError, addUserAuthSuccess,
+	createChatSuccess, startCreating, createChatError,
 } = createNewChat.actions;
 
 export const CreateChat = name => async dispatch => {
