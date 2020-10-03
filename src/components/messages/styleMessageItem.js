@@ -13,6 +13,7 @@ export const MessagesContainer = styled.div`
   }
 	@media ${({ theme }) => theme.device.tablet} {
 		width: 60%;
+		overflow: hidden;
   }
 `;
 
@@ -45,7 +46,6 @@ export const ContainerMsgList = styled.div`
 		height: 95vh;
 		margin-bottom:0vh;
 	}
-  }
 `;
 
 // ? Messages Item ---------------------------------------------------------------------------------

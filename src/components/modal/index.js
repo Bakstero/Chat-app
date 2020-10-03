@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactDom from 'react-dom';
 
 const ModalWrapper = styled.div`
 	position: fixed;
@@ -48,16 +49,17 @@ const ModalContainter = styled.div`
   }
 `;
 
-const Modal = ({ children, open }) => (
-	<div>
+const Modal = ({ children, open }) => ReactDom.createPortal(
+	<>
 		{open === true
-			&& <ModalWrapper>
-				<ModalContainter>
-					{children}
-				</ModalContainter>
-			</ModalWrapper>
+					&& <ModalWrapper>
+						<ModalContainter>
+							{children}
+						</ModalContainter>
+					</ModalWrapper>
 		}
-	</div>
+	</>,
+	document.getElementById('modal')
 );
 
 export default Modal;
