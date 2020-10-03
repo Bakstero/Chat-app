@@ -1,27 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuthUser from '../../hooks/useAuthUser';
-import UserLogin from '../form/login';
-import RegisterUser from '../form/register';
+import SignInUser from '../auth/signInUser';
+import SignupUser from '../auth/signUpUser';
 import UserMenu from './userMenu/userMenu';
 import {
 	Wrapper, Nav, AuthDiv, TextLogo,
 } from './styleHeader';
+import * as ROUTE from '../../routes/routes';
 
 const Header = () => {
 	const currentUser = useAuthUser();
 	return (
 		<Wrapper>
 			<Nav>
-				<Link to="/">
+				<Link to={ROUTE.HOME}>
 					<TextLogo />
 				</Link>
 				{currentUser ? (
 					<UserMenu />
 				) : (
 					<AuthDiv>
-						<RegisterUser />
-						<UserLogin />
+						<SignupUser />
+						<SignInUser />
 					</AuthDiv>
 				)}
 			</Nav>

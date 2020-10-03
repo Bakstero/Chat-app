@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { AiFillFacebook, AiFillGoogleSquare, AiOutlineClose } from 'react-icons/ai';
+import { AiFillFacebook, AiFillGoogleSquare } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
-import Modal from '../modal/index';
+import Modal from '../modal/modal';
 import { googleAuth, fbAuth } from '../../services/authProviders';
 import { CloseModal } from '../../helpers/closeModal';
 import { errorLogin, errorLoginuser } from '../../shared/auth/authSlice';
 import {
 	FormContainter,
-	HeaderForm,
-	TitleForm,
 	Form,
 	Input,
 	FooterForm,
 	CustomSubmit,
 	ErrorTitle,
 	MinimalistButton,
-	CloseButton, TextButton,
-} from './styleForm';
+	TextButton,
+} from './formAuthStyles';
 import { auth } from '../../services/firebase';
 
-const UserLogin = () => {
+const SignInUser = () => {
 	const dispatch = useDispatch();
 	const { register, handleSubmit, errors } = useForm();
 	const [modal, openModal] = useState(false);
@@ -34,14 +32,11 @@ const UserLogin = () => {
 	return (
 		<div>
 			<MinimalistButton onClick={() => openModal(true)}>Login</MinimalistButton>
-			<Modal open={modal}>
+			<Modal
+				open={modal}
+				title='Login'
+				close={() => openModal(false)}>
 				<FormContainter>
-					<HeaderForm>
-						<TitleForm>Login</TitleForm>
-						<CloseButton onClick={() => openModal(false)}>
-							<AiOutlineClose size={'30px'} />
-						</CloseButton>
-					</HeaderForm>
 					<Form onSubmit={handleSubmit(onSubmit)}>
 						<Input
 							name="email"
@@ -80,4 +75,4 @@ const UserLogin = () => {
 		</div>
 	);
 };
-export default UserLogin;
+export default SignInUser;

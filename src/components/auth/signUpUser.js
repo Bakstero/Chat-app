@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { AiFillFacebook, AiFillGoogleSquare, AiOutlineClose } from 'react-icons/ai';
+import { AiFillFacebook, AiFillGoogleSquare } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	FormContainter,
-	HeaderForm,
-	TitleForm,
 	Form,
 	Input,
 	FooterForm,
 	CustomSubmit,
 	ErrorTitle,
 	MinimalistButton,
-	CloseButton,
 	TextButton,
-} from './styleForm';
-import Modal from '../modal/index';
+} from './formAuthStyles';
+import Modal from '../modal/modal';
 import { googleAuth, fbAuth } from '../../services/authProviders';
 import { CloseModal } from '../../helpers/closeModal';
 import { errorLogin, errorLoginuser } from '../../shared/auth/authSlice';
@@ -25,30 +22,26 @@ import {
 	UpdateUserDataAferAuth,
 } from '../../services/sendUserDataToFirebase';
 
-const RegisterUser = () => {
+const SignupUser = () => {
 	const dispatch = useDispatch();
 	const { register, handleSubmit, errors } = useForm();
 	const [modal, openModal] = useState(false);
 	const firebaseError = useSelector(errorLoginuser);
-
 	const onSubmit = ({ email, password, name }) => {
 		auth().createUserWithEmailAndPassword(email, password)
 			.then(() => UpdateUserDataAferAuth(name))
 			.then(() => sendUserDataUsingForm(name))
 			.catch(error => dispatch(errorLogin(error.message)));
 	};
-
 	return (
 		<div>
 			<MinimalistButton onClick={() => openModal(true)}>Register</MinimalistButton>
-			<Modal open={modal}>
+			<Modal
+				open={modal}
+				title='Register'
+				close={() => openModal(false)}
+			>
 				<FormContainter>
-					<HeaderForm>
-						<TitleForm>Register</TitleForm>
-						<CloseButton onClick={() => openModal(false)}>
-							<AiOutlineClose size={'30px'} />
-						</CloseButton>
-					</HeaderForm>
 					<Form onSubmit={handleSubmit(onSubmit)}>
 						<Input
 							name="name"
@@ -56,6 +49,8 @@ const RegisterUser = () => {
 							type="text"
 							ref={register({ required: true })}
 						/>
+						{errors.name?.type === 'required'
+							&& <ErrorTitle>Name is required.</ErrorTitle>}
 						<Input
 							name="email"
 							placeholder="Email"
@@ -78,6 +73,7 @@ const RegisterUser = () => {
 							&& <ErrorTitle>Password is required.</ErrorTitle>}
 						{errors.password?.type === 'minLength'
 							&& <ErrorTitle>Min lenght is 6</ErrorTitle>}
+
 						<Input submit type="submit" />
 						{firebaseError !== null
 							&& <ErrorTitle>{firebaseError}</ErrorTitle>}
@@ -98,4 +94,4 @@ const RegisterUser = () => {
 		</div>
 	);
 };
-export default RegisterUser;
+export default SignupUser;

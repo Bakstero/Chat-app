@@ -57,3 +57,42 @@ const UserMenu = () => {
 };
 
 export default UserMenu;
+
+/*
+const buttons = ['facebook', 'twitter', 'youtube'];
+
+return (
+  <div>
+    {
+      buttons.map( (button) => {
+        return (
+          <IconButton
+            onClick={doStuff( button )}
+            iconClass={button}
+          />
+        );
+      } )
+    }
+  </div>
+);
+
+let listArr = [{
+    itemId: 1,
+    link: `http://google.com`,
+},
+{
+    itemId: 2,
+    link: `http://yahoo.com`,
+}
+...,
+{
+    itemId: 3,
+    link: `http://disney.com`
+}]
+
+listArr.map((item, index)=>(
+    //A true ID given the data
+    <li key={item.itemId}>{item.link}</li>
+))
+https://americanexpress.io/clean-code-dirty-code/
+*/

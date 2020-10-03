@@ -5,7 +5,6 @@ import users from '../shared/users/getUsersSlice';
 import messages from '../shared/messages/getMessagesSlice';
 import chats from '../shared/chat/getChatSlice';
 import newChat from '../shared/chat/createChatSlice';
-import UsersPermission from '../shared/chat/UsersPermissionSlice';
 
 export default configureStore({
 	reducer: {
@@ -14,7 +13,6 @@ export default configureStore({
 		newMessage,
 		messages,
 		newChat,
-		UsersPermission,
 		chats,
 	},
 });

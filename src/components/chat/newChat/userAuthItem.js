@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUsersPrm, removeUsersPrm, allUsersPrm } from '../../../shared/chat/UsersPermissionSlice';
+import { addUsersPrm, removeUsersPrm, allUsersPrm } from '../../../shared/chat/createChatSlice';
 
 export const Wrapper = styled.div`
 	width: 100%;
@@ -56,14 +56,14 @@ const UserItem = ({ userItem: { id, name, avatar } }) => {
 			{active === false
 				? (<Wrapper onClick={() => ManageUserPermision(id)}>
 					<Container >
-						<UserAvatar src={avatar} alt='' />
+						<UserAvatar src={avatar} alt={name} />
 						<UserName >{name}</UserName>
 					</Container>
 				</Wrapper>
 				) : (
 					<Wrapper active onClick={() => ManageUserPermision(id)}>
 						<Container>
-							<UserAvatar src={avatar} alt='' />
+							<UserAvatar src={avatar} alt={name} />
 							<UserName >{name}</UserName>
 						</Container>
 					</Wrapper>

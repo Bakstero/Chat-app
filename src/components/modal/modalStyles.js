@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import ReactDom from 'react-dom';
 
-const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
 	position: fixed;
 	z-index: 999;
 	top:0;
@@ -15,7 +13,7 @@ const ModalWrapper = styled.div`
 	justify-content: center;
 	flex-direction:column;
 `;
-const ModalContainter = styled.div`
+export const ModalContainter = styled.div`
 	position: fixed;
 	z-index: 9999;
 	display: flex;
@@ -48,18 +46,30 @@ const ModalContainter = styled.div`
 		height: 60vh;
   }
 `;
+export const HeaderModal = styled.div`
+	padding: 0% 5% 0% 10%;
+	width:100%;
+	height:10vh;
+	display: flex;
+	align-items:center;
+	justify-content: space-between;
+	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`;
+export const TitleModal = styled.h2`
+	color:${({ theme }) => theme.colors.textPrimary};
+`;
 
-const Modal = ({ children, open }) => ReactDom.createPortal(
-	<>
-		{open === true
-		&& <ModalWrapper>
-			<ModalContainter>
-				{children}
-			</ModalContainter>
-		</ModalWrapper>
-		}
-	</>,
-	document.getElementById('modal'),
-);
-
-export default Modal;
+export const CloseButton = styled.div`
+	margin:10px;
+	padding: 0% 10% 0% 10%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 50px;
+	height: 50px;
+	padding: 0%;
+	border-radius:none;
+	justify-content: center;
+	background-color:${({ theme }) => theme.colors.background};
+	color: ${({ theme }) => theme.colors.textPrimary};
+`;

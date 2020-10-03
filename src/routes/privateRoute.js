@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import useAuthUser from '../hooks/useAuthUser';
+import * as ROUTE from './routes';
 
 export default function PrivateRoute({ component: Component, ...rest }) {
 	const currentUser = useAuthUser();
@@ -10,7 +11,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
 		<Route {...rest} render={props => (
 			currentUser
 				? <Component {...props} />
-				: <Redirect to="/" />
+				: <Redirect to={ROUTE.HOME} />
 		)} />
 	);
 }

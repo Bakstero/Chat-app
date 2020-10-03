@@ -9,20 +9,6 @@ export const FormContainter = styled.div`
 	z-index:9999;
 `;
 
-export const HeaderForm = styled.div`
-	padding: 0% 5% 0% 10%;
-	width:100%;
-	height:10vh;
-	display: flex;
-	align-items:center;
-	justify-content: space-between;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-`;
-
-export const TitleForm = styled.h2`
-	color:${({ theme }) => theme.colors.textPrimary};
-`;
-
 export const ErrorTitle = styled.p`
 	color:${({ theme }) => theme.colors.error};
 	margin:0;
@@ -40,7 +26,7 @@ export const Form = styled.form`
   }
 
 	@media ${({ theme }) => theme.device.tablet} {
-			padding: 10%;
+		padding: 10%;
   }
 
 `;
@@ -57,15 +43,24 @@ export const Input = styled.input`
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+		transition: .3s;
+	&:hover {
+		transition: .3s;
+		border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+	}
 	&:focus {
 		outline: none;
-		border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+		border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
   }
 	${props => props.submit && css`
 		background-color:${({ theme }) => theme.colors.background};
 		cursor: pointer;
+
+		&:hover {
+		transition: .3s;
+		color: ${({ theme }) => theme.colors.primary};
+	}
   `}
-}
 `;
 
 export const FooterForm = styled.div`
@@ -89,8 +84,11 @@ export const FooterForm = styled.div`
 
 	@media ${({ theme }) => theme.device.tablet} {
 		width: 100%;
+		height:100%;
 		padding: 10px;
 		border-top: 1px solid ${({ theme }) => theme.colors.border};
+		align-items:center;
+		justify-content: center;
   }
 `;
 
@@ -129,21 +127,6 @@ export const TextButton = styled.h3`
 	color:${({ theme }) => theme.colors.white};
 	font-size:${({ theme }) => theme.fontSize.regular};
 	font-weight: ${({ theme }) => theme.fontWeight.regular};
-`;
-
-export const CloseButton = styled.div`
-	margin:10px;
-	padding: 0% 10% 0% 10%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 50px;
-	height: 50px;
-	padding: 0%;
-	border-radius:none;
-	justify-content: center;
-	background-color:${({ theme }) => theme.colors.background};
-	color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const MinimalistButton = styled.button`

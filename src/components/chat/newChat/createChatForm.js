@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineEdit, AiOutlineUserAdd } from 'react-icons/ai';
-import { CreateChat } from '../../../shared/chat/createChatSlice';
-import { allUsersPrm } from '../../../shared/chat/UsersPermissionSlice';
+import { CreateChat, allUsersPrm } from '../../../shared/chat/createChatSlice';
 import {
 	Wrapper,
 	FormContainer,
@@ -11,6 +10,7 @@ import {
 	CreateButton,
 } from './styleNewChat';
 import ChatAuthUsers from './chatAuthUsers';
+import * as ROUTE from '../../../routes/routes';
 
 const CreateChatForm = () => {
 	const [Container, openContainer] = useState(false);
@@ -36,7 +36,7 @@ const CreateChatForm = () => {
 		setValue('name');
 	};
 	return (
-		<Wrapper to={'/new/chat'}>
+		<Wrapper to={ROUTE.NEW_CHAT}>
 			<FormContainer onSubmit={handleSubmit(onSubmit)}>
 
 				<NewChatInput
