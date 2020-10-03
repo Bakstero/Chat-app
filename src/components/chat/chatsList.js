@@ -10,8 +10,9 @@ const ChatsList = () => {
 	const dispatch = useDispatch();
 	const { uid } = useSelector(selectCurrentUser);
 	const { chats, isLoading } = useSelector(state => state.chats);
-
-	useEffect(() => dispatch(fetchChats(uid)), [dispatch, uid]);
+	useEffect(() => {
+		dispatch(fetchChats(uid));
+	}, [dispatch, uid]);
 
 	return (
 		<ChatListContainer>

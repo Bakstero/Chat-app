@@ -11,7 +11,9 @@ const MessagesList = () => {
 	const { messages, isLoading } = useSelector(state => state.messages);
 	const { id } = useParams();
 
-	useEffect(() => dispatch(fetchMessages(id)), [dispatch, id]);
+	useEffect(() => {
+		dispatch(fetchMessages(id));
+	}, [dispatch, id]);
 	/*
 	const DeleteMessage = async (text, data) => {
 		await db.collection('chat')

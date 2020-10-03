@@ -10,9 +10,9 @@ import {
 const UsersList = () => {
 	const dispatch = useDispatch();
 	const { users, isLoading } = useSelector(state => state.users);
-
-	useEffect(() => dispatch(fetchUsers()), [dispatch]);
-
+	useEffect(() => {
+		dispatch(fetchUsers());
+	}, [dispatch]);
 	return (
 		<UserListWrapper>
 			{!isLoading ? (
