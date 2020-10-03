@@ -13,5 +13,5 @@ export default function PublicRoute({ component: Component, restricted, ...rest 
 		)} />
 	);
 }
-// restricted = false meaning public route
-// restricted = true meaning restricted route
+// ! restricted = false meaning public route
+// ! restricted = true meaning restricted route

@@ -66,6 +66,7 @@
     "no-mixed-operators": "error",
     "no-else-return": "error",
     "no-new-wrappers": "error",
-    "react/prop-types": 0
+		"react/prop-types": 0,
+		"no-unused-expressions":["error", { "allowShortCircuit": true, "allowTernary": true }]
   }
 }

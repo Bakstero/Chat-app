@@ -52,14 +52,14 @@ const ModalContainter = styled.div`
 const Modal = ({ children, open }) => ReactDom.createPortal(
 	<>
 		{open === true
-					&& <ModalWrapper>
-						<ModalContainter>
-							{children}
-						</ModalContainter>
-					</ModalWrapper>
+		&& <ModalWrapper>
+			<ModalContainter>
+				{children}
+			</ModalContainter>
+		</ModalWrapper>
 		}
 	</>,
-	document.getElementById('modal')
+	document.getElementById('modal'),
 );
 
 export default Modal;
