@@ -94,18 +94,17 @@ export const ChatContainer = styled(Link)`
 	display: flex;
 	align-items:center;
 	justify-content: flex-start;
-
+	border: 1px solid ${({ theme }) => theme.colors.background};
+	transition: 0.4s;
+	&:hover {
+		transition: 0.4s;
+		border: 1px solid ${({ theme }) => theme.colors.primary};
+	}
 ${props => props.title && css`
 		margin-top:0px;
 		justify-content: center;
 		width: 50px;
 		height: 50px;
-		transition: 0.4s;
-
-		&:hover {
-			transition: 0.4s;
-			background-color:${({ theme }) => theme.colors.scdBackground};
-		}
   `}
 `;
 

@@ -7,13 +7,12 @@ import { CloseModal } from '../../../helpers/closeModal';
 import {
 	UserAvatar,
 	UserMenuWrapper,
-	Item,
-	Container,
 	ProfileIcon,
 	EditIcon,
 	SettingsIcon,
 	LogoutIcon,
 } from './styleUserMenu';
+import { Item, Logout } from './userMenuItem';
 
 const UserMenu = () => {
 	const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/appwillay.appspot.com/o/avatars%2FDefaultUserAvatar.jpg?alt=media&token=aa410a73-9c7f-4d93-926c-37dae73dc136';
@@ -26,30 +25,30 @@ const UserMenu = () => {
 				: <UserAvatar clicked={popup} onClick={() => openPopup(true)} src={defaultAvatar} />
 			}
 			<Popup open={popup}>
-				<Item to={`/user/${uid}`}>
-					<Container>
-						<ProfileIcon/>
-						Profile
-					</Container>
+
+				<Item
+					link={`/user/${uid}`}
+					title='Profile'>
+					<ProfileIcon/>
 				</Item>
-				<Item to={`/edit/${uid}`}>
-					<Container>
-						<EditIcon />
-						Edit
-					</Container>
+
+				<Item
+					link='/edit'
+					title='Edit'>
+					<EditIcon />
 				</Item>
-				<Item lastItem to={`/settings/${uid}`}>
-					<Container>
-						<SettingsIcon />
-						Settings
-					</Container>
+
+				<Item
+					link='/settings'
+					title='Settings'>
+					<SettingsIcon />
 				</Item>
-				<Item onClick={() => logout()}>
-					<Container>
-						<LogoutIcon />
-						Logout
-					</Container>
-				</Item>
+
+				<Logout logout={() => logout()}
+					title='Logout'>
+					<LogoutIcon />
+				</Logout>
+
 				<CloseModal onClick={() => openPopup(false)} />
 			</Popup>
 		</UserMenuWrapper>
@@ -57,42 +56,3 @@ const UserMenu = () => {
 };
 
 export default UserMenu;
-
-/*
-const buttons = ['facebook', 'twitter', 'youtube'];
-
-return (
-  <div>
-    {
-      buttons.map( (button) => {
-        return (
-          <IconButton
-            onClick={doStuff( button )}
-            iconClass={button}
-          />
-        );
-      } )
-    }
-  </div>
-);
-
-let listArr = [{
-    itemId: 1,
-    link: `http://google.com`,
-},
-{
-    itemId: 2,
-    link: `http://yahoo.com`,
-}
-...,
-{
-    itemId: 3,
-    link: `http://disney.com`
-}]
-
-listArr.map((item, index)=>(
-    //A true ID given the data
-    <li key={item.itemId}>{item.link}</li>
-))
-https://americanexpress.io/clean-code-dirty-code/
-*/

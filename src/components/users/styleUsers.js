@@ -38,11 +38,18 @@ export const ItemWrapper = styled(Link)`
 	justify-content:center;
 	border-radius:12px;
 	transition: 0.4s;
+	border: 1px solid ${({ theme }) => theme.colors.scdBackground};
 
 	&:hover {
 		transition: 0.4s;
-		background-color:${({ theme }) => theme.colors.scdBackground};
+		border: 1px solid ${({ theme }) => theme.colors.primary};
 	}
+	@media ${({ theme }) => theme.device.mobileS} {
+		margin:0px;
+  }
+	@media ${({ theme }) => theme.device.tablet} {
+		margin:0px 5px 0px 5px;
+  }
 `;
 
 export const UserAvatar = styled.img`

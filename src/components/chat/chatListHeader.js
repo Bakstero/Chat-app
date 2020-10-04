@@ -4,7 +4,7 @@ import {
 } from './styleChat';
 import * as ROUTE from '../../routes/routes';
 
-const ChatsHeader = () => (
+const chatListHeader = () => (
 	<ChatHeaderContainer>
 		<ChatTitle title>Chats</ChatTitle>
 		<ChatContainer title to={ROUTE.NEW_CHAT}>
@@ -13,4 +13,4 @@ const ChatsHeader = () => (
 	</ChatHeaderContainer>
 );
 
-export default ChatsHeader;
+export default chatListHeader;

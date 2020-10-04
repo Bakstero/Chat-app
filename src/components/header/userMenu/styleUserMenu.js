@@ -21,7 +21,7 @@ export const UserMenuWrapper = styled.div`
 	flex-direction:column;
 `;
 
-export const Item = styled(Link)`
+export const ItemStyle = styled(Link)`
 	display: flex;
 	align-items:center;
 	justify-content:center;
@@ -34,7 +34,7 @@ export const Item = styled(Link)`
 		transition: 0.4s;
 	}
 	${props => props.lastItem && css`
-		border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+		border-top: 1px solid ${({ theme }) => theme.colors.primary};
   `}
 `;
 
@@ -44,6 +44,13 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 8px 16px 8px 16px;
+	color: ${({ theme }) => theme.colors.textPrimary};
+	font-weight:${({ theme }) => theme.fontWeight.regular};
+	font-size:${({ theme }) => theme.fontSize.regular};
+`;
+export const ItemTitle = styled.div`
+	width:100%;
+	height:100%;
 	color: ${({ theme }) => theme.colors.textPrimary};
 	font-weight:${({ theme }) => theme.fontWeight.regular};
 	font-size:${({ theme }) => theme.fontSize.regular};

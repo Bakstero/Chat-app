@@ -36,7 +36,7 @@ export const Input = styled.input`
 	margin: 20px 0px 20px 0px;
 	font-size: 16px;
 	background-color:${({ theme }) => theme.colors.background};
-	color: ${({ theme }) => theme.colors.textPrimary};
+	color: ${({ theme }) => theme.colors.primary};
 	border:none;
 	border-radius:0;
 	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
@@ -47,6 +47,7 @@ export const Input = styled.input`
 	&:hover {
 		transition: .3s;
 		border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+		color: ${({ theme }) => theme.colors.primary};
 	}
 	&:focus {
 		outline: none;

@@ -27,6 +27,7 @@ const SignupUser = () => {
 	const { register, handleSubmit, errors } = useForm();
 	const [modal, openModal] = useState(false);
 	const firebaseError = useSelector(errorLoginuser);
+
 	const onSubmit = ({ email, password, name }) => {
 		auth().createUserWithEmailAndPassword(email, password)
 			.then(() => UpdateUserDataAferAuth(name))

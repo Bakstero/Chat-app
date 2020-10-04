@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectCurrentUser } from '../../../shared/auth/authSlice';
 import { SendMsg } from '../../../shared/messages/createMessageSlice';
-import { NewMsgWrapper, Button } from './styleNewMessage';
+import { NewMsgWrapper, Button, Form, FormInput } from './styleNewMessage';
 
 const NewMessageForm = () => {
 	const { id } = useParams();
@@ -27,13 +27,13 @@ const NewMessageForm = () => {
 	};
 	return (
 		<NewMsgWrapper>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<FormInput
 					name="text"
 					ref={register({ required: true })}
 				/>
 				<Button type="Submit">Send</Button>
-			</form>
+			</Form>
 		</NewMsgWrapper>
 	);
 };

@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchChats } from '../../shared/chat/getChatSlice';
 import { selectCurrentUser } from '../../shared/auth/authSlice';
 import ChatItem from './chatItem';
-import ChatHeader from './chatHeader';
 import { ChatListContainer } from './styleChat';
+import ChatListHeader from './chatListHeader';
 
 const ChatsList = () => {
 	const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const ChatsList = () => {
 		<ChatListContainer>
 			{!isLoading ? (
 				<>
-					<ChatHeader />
+					<ChatListHeader />
 					{chats.map((chat, index) => (
 						<ChatItem item={chat} key={index}/>
 					))}

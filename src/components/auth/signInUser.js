@@ -42,7 +42,6 @@ const SignInUser = () => {
 							name="email"
 							placeholder="Email"
 							type="email"
-							validationMessage="This field is required"
 							marginTop={20}
 							ref={register({ required: true })}
 						/>

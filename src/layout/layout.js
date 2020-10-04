@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 		margin:0;
 		font-family: 'Montserrat';
 		color: ${({ theme }) => theme.colors.textPrimary};
-		background: ${({ theme }) => theme.colors.background};
+		background: ${({ theme }) => theme.colors.scdBackground};
 	}
 
 	*, *::before, *::after {
@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items:center;
-	background: ${({ theme }) => theme.colors.background};
+	background: ${({ theme }) => theme.colors.scdBackground};
 
 `;
 
