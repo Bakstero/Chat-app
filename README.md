@@ -33,4 +33,4 @@ $ yarn start
 * User Account
 
 ## Status
-Project is: in progress!
+Project is: complete!
