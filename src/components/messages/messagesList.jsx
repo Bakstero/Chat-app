@@ -14,23 +14,7 @@ const MessagesList = () => {
 	useEffect(() => {
 		dispatch(fetchMessages(id));
 	}, [dispatch, id]);
-	/*
-	const DeleteMessage = async (text, data) => {
-		await db.collection('chat')
-			.doc(id)
-			.update({
-				messages:
-					dbUpdate.FieldValue.arrayRemove({
-						user: name,
-						userUid: uid,
-						userAvatar: avatar,
-						text,
-						data,
-					}),
-			});
-	};
-	<button onClick={() => DeleteMessage(text, data)}>DeleteMessage</button>
-	*/
+
 	return (
 		<>
 			{isLoading ? (<h1>Loading Messages</h1>) : (
