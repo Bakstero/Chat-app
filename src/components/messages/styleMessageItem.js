@@ -89,5 +89,5 @@ export const MessageText = styled.p`
 	text-align: left;
 	margin:0px;
 	color: ${({ theme }) => theme.colors.white};
-	fontSize: 14px;
+	font-size: 14px;
 `;
