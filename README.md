@@ -1,5 +1,7 @@
 ## Chat App
 
+Link to App - https://chatlyapp.netlify.app/
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
