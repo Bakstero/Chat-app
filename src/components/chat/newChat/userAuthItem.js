@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUsersPrm, removeUsersPrm, allUsersPrm } from '../../../shared/chat/createChatSlice';
@@ -6,21 +6,21 @@ import { addUsersPrm, removeUsersPrm, allUsersPrm } from '../../../shared/chat/c
 export const Wrapper = styled.div`
 	width: 100%;
 	height: 75px;
-	background-color:${({ theme }) => theme.colors.scdBackground};
+	background-color:${({ theme }) => theme.colors.secoundary};
 	display: flex;
 	align-items: center;
 	margin: 10px 0px 10px 0px;
 	padding:10px;
 	cursor: pointer;
-	${props => props.active && css`
-		background-color:${({ theme }) => theme.colors.background};
+	${props => props.disable && css`
+		background-color:${({ theme }) => theme.colors.scdBackground};
   `}
 `;
 
 export const Container = styled.div`
 	display: flex;
 	align-items: center;
-	justyfi-content: center;
+	justify-content: center;
 `;
 
 export const UserAvatar = styled.img`
@@ -39,21 +39,19 @@ export const UserName = styled.span`
 const UserItem = ({ userItem: { id, name, avatar } }) => {
 	const dispatch = useDispatch();
 	const users = useSelector(allUsersPrm);
-	const [active, setActive] = useState(false);
 
-	const ManageUserPermision = uid => {
-		if (users.some(item => item === uid)) {
-			dispatch(removeUsersPrm(uid));
-			setActive(false);
+
+	const ManageUserPermision = UserUiD => {
+		if (users.some(item => item === UserUiD)) {
+			dispatch(removeUsersPrm(UserUiD));
 		} else {
-			dispatch(addUsersPrm(uid));
-			setActive(true);
+			dispatch(addUsersPrm(UserUiD));
 		}
 	};
 
 	return (
 		<>
-			{active === false
+			{users.some(item => item === id)
 				? (<Wrapper onClick={() => ManageUserPermision(id)}>
 					<Container >
 						<UserAvatar src={avatar} alt={name} />
@@ -61,7 +59,7 @@ const UserItem = ({ userItem: { id, name, avatar } }) => {
 					</Container>
 				</Wrapper>
 				) : (
-					<Wrapper active onClick={() => ManageUserPermision(id)}>
+					<Wrapper disable onClick={() => ManageUserPermision(id)}>
 						<Container>
 							<UserAvatar src={avatar} alt={name} />
 							<UserName >{name}</UserName>

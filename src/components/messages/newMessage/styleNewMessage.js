@@ -8,7 +8,7 @@ export const NewMsgWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	padding: 7px;
-	background-color:${({ theme }) => theme.colors.scdBackground};
+	background-color:${({ theme }) => theme.colors.primary};
 	@media ${({ theme }) => theme.device.mobileS} {
 		width: 100%;
 		margin:0;
