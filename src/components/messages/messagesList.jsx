@@ -17,7 +17,7 @@ const MessagesList = () => {
 
 	return (
 		<>
-			{isLoading ? (<h1>Loading Messages</h1>) : (
+			{isLoading ? (null) : (
 				<ContainerMsgList>
 					{messages.map((message, index) => <MessageItem item={message} key={index} />)}
 					<ScrollBottom />

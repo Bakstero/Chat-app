@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../layout/layout';
-import NewUserName from '../components/updateUserData/newUserName';
+import NewUserName from '../components/user/updateUserData/newUserName';
 import { ChatContainerOffMobile } from '../components/chat/chatContainer';
 
 const Wrapper = styled.div`

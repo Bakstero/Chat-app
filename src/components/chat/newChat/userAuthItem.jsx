@@ -40,7 +40,6 @@ const UserItem = ({ userItem: { id, name, avatar } }) => {
 	const dispatch = useDispatch();
 	const users = useSelector(allUsersPrm);
 
-
 	const ManageUserPermision = UserUiD => {
 		if (users.some(item => item === UserUiD)) {
 			dispatch(removeUsersPrm(UserUiD));

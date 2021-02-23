@@ -1,8 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCurrentUser } from '../../shared/auth/authSlice';
-import { EditUserName } from '../../shared/editUserData/editUserDataSlice';
+import { selectCurrentUser } from '../../../shared/auth/authSlice';
+import { EditUserName } from '../../../shared/editUserData/editUserDataSlice';
 import {
 	Wrapper,
 	Form,
